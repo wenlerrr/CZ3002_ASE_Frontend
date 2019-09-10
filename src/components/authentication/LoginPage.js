@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,10 +9,8 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,8 +41,31 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const classes = useStyles();
+
+  const [email, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignIn = e => {
+    e.preventDefault();
+    props
+      .onAuth("login", {email, password})
+      .then(() => {
+        return;
+      })
+      .catch(() => {
+        return;
+      });
+  }
+
+  const handleChange = e => {
+    if(e.target.name === "email") {
+      setUsername(e.target.value)
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value)
+    }
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -52,9 +73,6 @@ export default function LoginPage() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -69,6 +87,7 @@ export default function LoginPage() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
             />
             <TextField
               variant="outlined"
@@ -80,6 +99,7 @@ export default function LoginPage() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -91,6 +111,7 @@ export default function LoginPage() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleSignIn}
             >
               Sign In
             </Button>
@@ -101,14 +122,11 @@ export default function LoginPage() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Button onClick = {e => {props.onSignUp()}}>
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Button>
               </Grid>
             </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>
