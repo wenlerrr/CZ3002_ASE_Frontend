@@ -11,13 +11,18 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Card } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-    '@global': {
-      body: {
-        backgroundColor: theme.palette.common.white,
-      },
-    },
+    
+  main: {
+    marginTop: '135px', 
+    maxWidth: '400px', 
+    padding: '10px',
+    borderRadius: '20px 20px', 
+    backgroundColor: 'white',
+ },
+    
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
@@ -131,7 +136,8 @@ export default function Register(props) {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <div className="container" style={{marginTop: '135px', maxWidth: '500px', padding: '10px', borderRadius: '20px 20px', backgroundColor:"white"}}>
+    {/* <Card component="main" maxwidth='xs' spacing={24}>  */}
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
@@ -141,7 +147,6 @@ export default function Register(props) {
           <Grid container spacing={2}>
             <Grid item xs={12} >
               <TextField
-                autoComplete="fname"
                 name="usernameInput"
                 variant="outlined"
                 required
@@ -153,15 +158,15 @@ export default function Register(props) {
                 error={usernameError}
               />
             </Grid>
-            Grid item xs={12}>
+            <Grid item xs={12}>
               <TextField
                   variant="outlined"
                   required
                   fullWidth
+                  autoComplete='off'
                   id="email"
                   label="Email Address"
                   name="emailInput"
-                  autoComplete="email"
                   onChange={handleInputChange} 
                   error={emailError}
               />
@@ -171,11 +176,11 @@ export default function Register(props) {
                 variant="outlined"
                 required
                 fullWidth
+                autoComplete='off'
                 name="passwordInput"
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
                 onChange={handleInputChange} 
                 error={passwordError}
               />
@@ -189,6 +194,7 @@ export default function Register(props) {
                 label="Confirm Password"
                 type="password"
                 id="cpassword"
+                autoComplete='off'
                 onChange={handleInputChange} 
                 error={confirmError}
               />
@@ -219,8 +225,10 @@ export default function Register(props) {
               </Button>
             </Grid>
           </Grid>
+          </Grid>
         </form>
       </div>
-    </Container>
-  );
+    {/* </Card> */}
+  </div> 
+  ); 
 }
