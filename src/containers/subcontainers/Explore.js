@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import {fade,makeStyles}from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles(theme => ({
 
 }));
@@ -39,6 +40,8 @@ export default function Explore() {
             name='Community name'
             description='Community Description'
             ></CommunityCard>
+            <p></p>
+            <p></p>
             
         </div>
         </div>
