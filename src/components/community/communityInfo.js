@@ -11,6 +11,9 @@ import Card from '@material-ui/core/Card'
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
+
+// const primary = #2196f3;
+
 const useStyles = makeStyles(theme => ({
     text: {
       padding: theme.spacing(2, 2, 0),
@@ -37,7 +40,9 @@ const useStyles = makeStyles(theme => ({
         height: 250,
       },
     button:{
-        right:0
+        right:0,
+        position:"flex",
+        top:0,
     }
   }));
   
@@ -76,7 +81,8 @@ const useStyles = makeStyles(theme => ({
                     {/* Mac Miller */}
                     {props.description}
                 </Typography>
-                <Button variant="contained" colour='secondary'className={classes.button}> 
+                <Button variant="contained" colour='secondary'className={classes.button} > 
+                        {/*if alr joined, show quit; else show join */}
                         Join/Quit
                    </Button> 
                 </CardContent> 

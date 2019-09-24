@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justify:'space-between',
+    margin:'40px',
   },
   details: {
     display: 'flex',

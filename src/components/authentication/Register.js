@@ -202,7 +202,7 @@ export default function Register(props) {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox name="checkInput" onChange={handleInputChange} value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="Email me for exciting new updates!"
               />
             </Grid>
             {errorMessage && (
