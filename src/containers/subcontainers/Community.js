@@ -16,11 +16,13 @@ const Community = props => {
             image='https://source.unsplash.com/user/erondu'
             name='Community subscribed 1'
             description='Community Description'
+            joined='True'
             ></CommunityCard>
             <CommunityCard 
             image='https://source.unsplash.com/user/erondu'
             name='Community subscribed 2'
             description='Community Description'
+            joined='True'
             ></CommunityCard>
             
             <p></p>
@@ -30,7 +32,8 @@ const Community = props => {
             <div>
             <CommunityInfo image='https://source.unsplash.com/user/erondu'
             name='Community name'
-            description='Community Description'></CommunityInfo>
+            description='Community Description'
+            joined='True'></CommunityInfo>
             <p></p>
             <p></p>
             <MemberBar></MemberBar>

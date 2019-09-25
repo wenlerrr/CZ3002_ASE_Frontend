@@ -82,8 +82,8 @@ const useStyles = makeStyles(theme => ({
                     {props.description}
                 </Typography>
                 <Button variant="contained" colour='secondary'className={classes.button} > 
-                        {/*if alr joined, show quit; else show join */}
-                        Join/Quit
+                        {/*if alr joined, show quit; else show join Join/Quit*/}
+                        {props.joined ?"Quit":"Join"}
                    </Button> 
                 </CardContent> 
                 

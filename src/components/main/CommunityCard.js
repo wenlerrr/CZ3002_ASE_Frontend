@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -33,8 +33,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+// function updateStateData(id){
+//   return data.map(item => {
+//     if(item.id !== id) return item 
+//     return {...item, name: item.name + ' updated'}
+//   })  
+// }
+
+//issue: how to rerender the component after prop changes
 export default function CommunityCard(props) {
   const classes = useStyles();
+  const [joined, setJoined] = useState('');
+  
+  // const handleChange = e => {
+  //   setJoined('False')
+  // };
 
   return (
     <Card className={classes.card}>
@@ -58,8 +71,8 @@ export default function CommunityCard(props) {
           <Button variant="contained" colour='secondary'className={classes.button}> 
           View
             </Button>
-            <Button variant="contained" colour='secondary'className={classes.button}> 
-            Join
+            <Button variant="contained" colour='secondary'className={classes.button} onChange={e => setJoined('False')}> 
+            {props.joined? 'Quit': 'Join'}
             </Button>
         </CardContent> 
       </div>
