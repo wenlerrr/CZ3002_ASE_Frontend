@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-export default function ForumDetails(props) {
+export default function ForumPosts(props) {
     const [expanded, setExpanded] = React.useState(false);
     const classes = useStyles();
     function handleExpandClick() {

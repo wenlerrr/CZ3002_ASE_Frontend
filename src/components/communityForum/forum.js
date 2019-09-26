@@ -12,7 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import ForumDialog from './forumDialog';
 
-import ForumDetails from './forumDetails'
+import ForumPosts from './forumPosts'
 
 const messages = [
   {
@@ -124,8 +124,8 @@ export default function Forum() {
       </AppBar>
         <List className={classes.list}>
         {messages.map(({ id, primary, secondary, person, replies}) => (
-          <ForumDetails id={id} primary={primary} secondary={secondary} person={person} replies={replies}>
-          </ForumDetails>
+          <ForumPosts id={id} primary={primary} secondary={secondary} person={person} replies={replies}>
+          </ForumPosts>
           ))}
         </List>
       
