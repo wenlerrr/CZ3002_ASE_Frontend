@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    //backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',

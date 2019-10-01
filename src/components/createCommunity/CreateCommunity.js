@@ -1,20 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
-
+import { CssBaseline,AppBar,Toolbar,Paper,Stepper,Step,StepLabel,Button,Link,Typography} from '@material-ui/core';
+import { flexbox } from '@material-ui/system';
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
-import { flexbox } from '@material-ui/system';
-
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -56,21 +45,28 @@ const useStyles = makeStyles(theme => ({
 
 const steps = ['Community details', 'Review'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <CommunityDetailsForm />;
-    case 1:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
 export default function CreateCommunity(props) {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
-
+  const [activeStep, setActiveStep] = useState(0);
+  const [info,setInfo]= useState({
+    name: 'hello it name',
+    description: 'hello its description',
+    image:'',
+    category:''
+  });
+  const modifyInfo = info => {
+    setInfo(info);
+  };
+  const getStepContent= step =>{
+    switch (step) {
+      case 0:
+        return <CommunityDetailsForm info={info} modifyInfo={modifyInfo}/>;
+      case 1:
+        return <Review info={info} />;
+      default:
+        throw new Error('Unknown step');
+    }
+  };
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };

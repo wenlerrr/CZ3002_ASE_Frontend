@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -9,22 +9,32 @@ import Checkbox from '@material-ui/core/Checkbox';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import FileUpload from '../upload/FileUpload'
 
-export default function CommunityDetailsForm() {
+export default function CommunityDetailsForm({info,modifyInfo}) {
+  const setName = newname => {
+    const {name,...other}=info
+    const newInfo =[{...other},{name:newname}] ;
+    modifyInfo(newInfo);
+  };
+  const setDes = newDes => {
+    const {description,...other}=info
+    const newInfo = [{...other},{description:newDes}];
+    modifyInfo(newInfo);
+  };
   return (
     <React.Fragment>
-
-      
       <Grid container spacing={3}>
         <Grid item xs={12} >
         <Typography variant="h6" gutterBottom>
-        Community Name
-      </Typography>
-          <TextField
+          Community Name
+        </Typography>
+        <TextField
             required
             id="communityName"
             name="communityName"
+            value={info.name}
+            onChange={e => setName(e.target.value)}
             fullWidth
-          />
+        />
         </Grid>
      
         <Grid item xs={12} >
@@ -36,6 +46,8 @@ export default function CommunityDetailsForm() {
             id="communityDescription"
             name="communityDescription"
             fullWidth
+            value={info.description}
+            onChange={e => setDes(e.target.value)}
             placeholder="Describe more about your community"
             multiline='True'
           />

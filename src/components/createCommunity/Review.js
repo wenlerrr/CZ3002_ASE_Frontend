@@ -6,11 +6,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
-export default function Review() {
+export default function Review({info}) {
   return (
     <div>
       <Checkbox/>
-      <Typography> To be modified </Typography>
+      <Typography> name is {info.name} </Typography>
+      <Typography> description is{info.description} </Typography>
     </div>
   );
 }
