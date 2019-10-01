@@ -1,14 +1,7 @@
 import React, {useState} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
-import Button from '@material-ui/core/Button'
+import {Card,CardContent,CardMedia,Typography, Button} from '@material-ui/core';
+
 const useStyles = makeStyles(theme => ({
   card: {
     display: 'flex',
@@ -27,56 +20,47 @@ const useStyles = makeStyles(theme => ({
     width: 350,
     height: 250,
   },
-  
+  cover_small:{
+    width: 150,
+    height: 100,
+  },
   button:{
     margin:5
   }
 }));
 
-// function updateStateData(id){
-//   return data.map(item => {
-//     if(item.id !== id) return item 
-//     return {...item, name: item.name + ' updated'}
-//   })  
-// }
-
-//issue: how to rerender the component after prop changes
-export default function CommunityCard(props) {
+export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
   const classes = useStyles();
-  const [joined, setJoined] = useState('');
-  
-  // const handleChange = e => {
-  //   setJoined('False')
-  // };
-
   return (
     <Card className={classes.card}>
-      <CardMedia
-        className={classes.cover}
-        // image='https://source.unsplash.com/user/erondu'
-        // title="Live from space album cover"
-        image={props.image}
-      />
-    
+      {sim? (<CardMedia className={classes.cover_small} image={sub.image}/>) :
+     ( <CardMedia className={classes.cover}image={sub.image}/> )}   
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            {/* Live From Space */}
-            {props.name}
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            {/* Mac Miller */}
-            {props.description}
-          </Typography>
+          
+          {sim?  
+          (<Typography variant="h5">{sub.name}
+          </Typography>)
+          :
+            (<div>
+            <Typography component="h4" variant="h4">{sub.name}
+            </Typography>
+            <Typography variant="subtitle1" color="textSecondary">{sub.description}
+            </Typography> </div>)}   
+          
           <Button variant="contained" colour='secondary'className={classes.button}> 
           View
             </Button>
-            <Button variant="contained" colour='secondary'className={classes.button} onChange={e => setJoined('False')}> 
-            {props.joined? 'Quit': 'Join'}
-            </Button>
+            {sub.joined? (
+              <Button variant="contained" colour='secondary'className={classes.button} onClick={() => removeSub(index)}> 
+              Quit</Button>)
+              : 
+              (<Button variant="contained" colour='secondary'className={classes.button} onClick={() => addSub(index)}> 
+              Join</Button>)
+              }
+            
         </CardContent> 
-      </div>
-          
+      </div>         
      </Card>
   );
 }

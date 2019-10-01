@@ -1,55 +1,57 @@
-import React from "react";
+import React,{useState}from "react";
 import {Grid} from '@material-ui/core'
-import CommunityInfo from "../../components/community/communityInfo";
-import Forum from '../../components/communityForum/forum';
-import MemberBar from "../../components/communityMember/memberBar";
-import VideoGallery from "../../components/communityVideo/videoGallery";
 import CommunityCard from "../../components/main/CommunityCard"
-import SimilarCommunities from "../../components/community/similarCommunities"
+import SingleCommunityPage from '../../components/main/SingleCommunityPage'
 const Community = props => {
-    
+    const [subList, setSubList] = useState([
+        {
+          name: "Community 1",
+          description: "Community 1 that you subscribed to!",
+          image:'https://source.unsplash.com/user/erondu',
+          joined: true
+        },
+        {
+            name: "Community 2",
+            description: "Community 2 that you subscribed to!",
+            image:'https://source.unsplash.com/user/erondu',
+            joined: true
+        },
+        {
+            name: "Community 3",
+            description: "Community 3 that you subscribed to!",
+            image:'https://source.unsplash.com/user/erondu',
+            joined: true
+        },
+      ]);   
+      
+      const removeSub = index => {
+        const newSubList = [...subList];
+        newSubList.splice(index, 1);
+        setSubList(newSubList);
+      };
+
+      const addSub = sub => {
+        const newSubList = [...subList,{sub}];
+        setSubList(newSubList);
+      };
+
     return (
         <div className="container">
             <h1>HIIIIIII WLLLLLLLLLLL!</h1>
             <p>These are the communities you subscribed to!!!!</p>
-            <CommunityCard 
-            image='https://source.unsplash.com/user/erondu'
-            name='Community subscribed 1'
-            description='Community Description'
-            joined='True'
-            ></CommunityCard>
-            <CommunityCard 
-            image='https://source.unsplash.com/user/erondu'
-            name='Community subscribed 2'
-            description='Community Description'
-            joined='True'
-            ></CommunityCard>
-            
-            <p></p>
-            <p>This is what you will see if u click open a community card</p>
-            <Grid container spacing={3}>
-                <Grid item xs='8'>
             <div>
-            <CommunityInfo image='https://source.unsplash.com/user/erondu'
-            name='Community name'
-            description='Community Description'
-            joined='True'></CommunityInfo>
-            <p></p>
-            <p></p>
-            <MemberBar></MemberBar>
-            <p></p>
-            <p></p>
-            <VideoGallery></VideoGallery>
-            <p></p>
-            <p></p>
-            
-            </div>
-            </Grid>
-            <Grid item xs='4'>
-            <SimilarCommunities></SimilarCommunities>
-            </Grid>
-            <Forum></Forum>
-            </Grid>
+            {subList.map((sub, index) => (
+          <CommunityCard
+            sim={false}
+            key={index}
+            index={index}
+            sub={sub}
+            addSub={addSub}
+            removeSub={removeSub}
+          />
+        ))}
+            </div> 
+            <div> <SingleCommunityPage> </SingleCommunityPage></div>
         </div>
     )
 }
