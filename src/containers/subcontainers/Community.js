@@ -1,7 +1,6 @@
 import React,{useState}from "react";
 import {Grid} from '@material-ui/core'
 import CommunityCard from "../../components/main/CommunityCard"
-import SingleCommunityPage from './SingleCommunityPage'
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
 
 const Community = props => {
@@ -35,7 +34,6 @@ const Community = props => {
           />
         ))}
             </div> 
-            {/* <div> <SingleCommunityPage> </SingleCommunityPage></div> */}
         </div>
     )
 }

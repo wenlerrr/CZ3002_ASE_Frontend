@@ -39,6 +39,7 @@ export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
     setRedirect(true);
   }
   if(redirect) {
+    console.log(communityID)
     return <Redirect 
     to={{
       pathname: "/community/single",

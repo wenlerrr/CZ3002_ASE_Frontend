@@ -2,8 +2,6 @@ import React,{useState} from "react";
 import CommunityCard from "../../components/main/CommunityCard";
 import InnerNavbar from "../../components/main/InnerNavBar";
 import {Button,InputBase,FormControl,Select,MenuItem,InputLabel,Typography,Fab,IconButton} from "@material-ui/core"
-import SearchIcon from '@material-ui/icons/Search';
-import ClearIcon from '@material-ui/icons/Clear';
 import {fade,makeStyles}from '@material-ui/core/styles';
 var { categoryList } = require('../../data/CategoryList');
 var { exploredCommunityList } = require('../../data/ExploredCommunityList');

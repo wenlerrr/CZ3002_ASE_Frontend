@@ -7,8 +7,22 @@ import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from '../../components/communityForum/forum';
 import API from '../../services/api2';
+var { communityList } = require('../../data/CommunityList');
+var { joinedCommunityList } = require('../../data/JoinedCommunityList');
+
+
+
+
 
 export default function SingleCommunityPage(props) {
+    // to extract info of the correct community given the community ID
+    //community ID can be extracted as {props.location.state.communityID}
+    const[community,setCommunity]=useState( 
+        (communityList.filter((community) => {
+        return community._id==props.location.state.communityID
+      }
+      ))[0])
+     
     return(
         <div className="container">          
             <Grid container spacing={3}>
@@ -16,16 +30,21 @@ export default function SingleCommunityPage(props) {
                     <div>
                         <p></p><p></p><p></p> <p></p>
                         <CommunityInfo 
-                        image='https://source.unsplash.com/user/erondu'
-                        name='Community name'
-                        description='Long Community Description'
-                        joined={true}></CommunityInfo>
+                        // image='https://source.unsplash.com/user/erondu'
+                        image={community.image}
+                        // name='Community name'
+                        name={community.name}
+                        // description='Long Community Description'
+                        description={community.description}
+                        joined={community.joined}></CommunityInfo>
                         <p></p> <p></p>
                         <MemberBar></MemberBar>
                     </div>
                 </Grid>
                 <Grid item xs={4}>
+                    
                 <p></p><p></p><p></p> <p></p>
+               
                     <SimilarCommunities></SimilarCommunities>
                 </Grid>
                 <VideoGallery></VideoGallery>

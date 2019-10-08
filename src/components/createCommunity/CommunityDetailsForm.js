@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Grid,Typography,TextField,Button,FormControlLabel,Checkbox,TextareaAutosize,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core';
 import FileUpload from '../upload/FileUpload'
+var { categoryList } = require('../../data/CategoryList');
 
 export default function CommunityDetailsForm({info,setInfo}) {
   const setName = newname => {
@@ -86,7 +87,9 @@ export default function CommunityDetailsForm({info,setInfo}) {
             <MenuItem value={18}>Marvel</MenuItem>
             <MenuItem value={1}>Sports</MenuItem>
             <MenuItem value={8}>Travel</MenuItem>
-  
+            {/* {categoryList.map((cat) => (
+        <MenuItem value={cat.category_id} name={cat.category_name}>{cat.category_name}</MenuItem>
+        ))}  */}
           </Select>
         </FormControl>
       </Grid>

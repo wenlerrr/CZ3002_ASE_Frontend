@@ -14,7 +14,6 @@ module.exports = {
           description: "Community 2 that you subscribed to!",
           image:'https://source.unsplash.com/user/erondu',
           category_id:4,
-
           joined: true
       },
       {
