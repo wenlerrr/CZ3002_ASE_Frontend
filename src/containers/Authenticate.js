@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import LoginPage from "../components/authentication/LoginPage";
 import Register from "../components/authentication/Register";
 import MainPage from "./subcontainers/MainPage"
+import ForgetPassword from "./subcontainers/ForgetPassword";
 const Authenticate = props => {
   const [logIn, setLogIn] = useState(true);
   const [start, setStart] = useState(true);
+  const [forgetPassword, setForgetPassword] = useState(false);
+  const onForgetPassword = e => {
+    setForgetPassword(true);
+  }
+  const offForgetPassword = e => {
+    setForgetPassword(false);
+  }
   const onLogIn = e => {
     setLogIn(true);
   }
@@ -26,14 +34,22 @@ const Authenticate = props => {
           </div>
       ) : (
           <div>
-              {(logIn) ? (
-                  <div>
-                      <LoginPage onSignUp={onSignUp} { ...props } />
-                  </div>
+              {(forgetPassword) ? (
+                <div>
+                  <ForgetPassword {...props} />
+                </div>
               ) : (
-                  <div>
-                      <Register onLogIn={onLogIn} {...props } />
-                  </div>
+                <div>
+                  {(logIn) ? (
+                      <div>
+                          <LoginPage onForgetPassword={onForgetPassword} onSignUp={onSignUp} { ...props } />
+                      </div>
+                  ) : (
+                      <div>
+                          <Register onLogIn={onLogIn} {...props } />
+                      </div>
+                  )}
+                </div>
               )}
           </div>
       )}

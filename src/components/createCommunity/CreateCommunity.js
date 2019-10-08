@@ -49,18 +49,16 @@ export default function CreateCommunity(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [info,setInfo]= useState({
-    name: 'hello it name',
-    description: 'hello its description',
+    name: 'test name',
+    description: 'test description  ',
     image:'',
     category:''
   });
-  const modifyInfo = info => {
-    setInfo(info);
-  };
+  
   const getStepContent= step =>{
     switch (step) {
       case 0:
-        return <CommunityDetailsForm info={info} modifyInfo={modifyInfo}/>;
+        return <CommunityDetailsForm info={info} setInfo={setInfo}/>;
       case 1:
         return <Review info={info} />;
       default:
@@ -68,6 +66,8 @@ export default function CreateCommunity(props) {
     }
   };
   const handleNext = () => {
+    //make sure all components are filled
+    
     setActiveStep(activeStep + 1);
   };
 
@@ -99,7 +99,7 @@ export default function CreateCommunity(props) {
                   Your community has been created!
                 </Typography>
                 <Typography variant="subtitle1">
-                  Get your frens to join us now MUAHAHAHA oky bye
+                  some fluff here
                 </Typography>
                 <Button className={classes.button}variant="contained"
                     color="primary">

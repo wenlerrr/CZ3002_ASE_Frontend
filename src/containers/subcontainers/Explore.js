@@ -44,8 +44,6 @@ export default function Explore() {
               </div>
             </div>
             <div >
-            {/* <h1>HIIIIIII WLLLLLLLLLLL!</h1>
-            <p>This is the explore page!!!</p> */}
               {exploreList.map((com, index) => (
                 <CommunityCard
                   sim={false}

@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { setLoading } from "../store/actions/load";
-import Landing from "./subcontainers/Landing";
 import Explore from "./subcontainers/Explore";
 import Community from "./subcontainers/Community";
 import Create from "./subcontainers/Create";
 import Password from "./subcontainers/Password";
+import SingleCommunityPage from "./subcontainers/SingleCommunityPage";
 
 const Routes = props => {
     const { currentUser } = props;
@@ -14,10 +14,6 @@ const Routes = props => {
         <Switch>
             <Route
                 exact path="/"
-                render={props => <Landing currentUser={currentUser} {...props} />}
-            />
-            <Route
-                exact path="/explore"
                 render={props => <Explore currentUser={currentUser} {...props} />}
             />
             <Route
@@ -31,6 +27,10 @@ const Routes = props => {
             <Route
                 exact path="/changePassword"
                 render={props => <Password currentUser={currentUser} {...props} />}
+            />
+            <Route
+                exact path="/community/single"
+                render={props => <SingleCommunityPage currentUser={currentUser} {...props} />}
             />
         </Switch>
     )

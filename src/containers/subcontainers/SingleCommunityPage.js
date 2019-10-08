@@ -1,21 +1,22 @@
-import React,{useState}from "react";
+import React,{useState, useEffect}from "react";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Card,CardContent,CardMedia,Typography, Button,Grid} from '@material-ui/core';
-import CommunityInfo from "../community/communityInfo";
-import SimilarCommunities from "../community/similarCommunities";
-import VideoGallery from "../communityVideo/videoGallery";
-import MemberBar from "../communityMember/memberBar";
-import Forum from '../communityForum/forum';
+import CommunityInfo from "../../components/community/communityInfo";
+import SimilarCommunities from "../../components/community/similarCommunities";
+import VideoGallery from "../../components/communityVideo/videoGallery";
+import MemberBar from "../../components/communityMember/memberBar";
+import Forum from '../../components/communityForum/forum';
+import API from '../../services/api2';
 
-
-export default function SingleCommunityPage() {
+export default function SingleCommunityPage(props) {
     return(
         <div>
             <p>This is what you will see if u click open a community card</p>
             <Grid container spacing={3}>
                 <Grid item xs='8'>
                     <div>
-                        <CommunityInfo image='https://source.unsplash.com/user/erondu'
+                        <CommunityInfo 
+                        image='https://source.unsplash.com/user/erondu'
                         name='Community name'
                         description='Long Community Description'
                         joined={true}></CommunityInfo>

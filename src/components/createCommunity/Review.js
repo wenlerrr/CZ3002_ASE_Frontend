@@ -1,17 +1,21 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import {Typography,Grid,TextField,FormControlLabel,Checkbox,Card,CardMedia,CardContent} from '@material-ui/core';
+
 
 export default function Review({info}) {
   return (
     <div>
-      <Checkbox/>
-      <Typography> name is {info.name} </Typography>
-      <Typography> description is{info.description} </Typography>
+      <Typography variant="h4"> Please confirm the following deatils before pressing the create button: </Typography>
+      <p> </p>
+      <Typography variant="h6"> Name:</Typography>
+      <Typography variant="h7"> {info.name} </Typography>
+      <p> </p>
+      <Typography variant="h6"> Description: </Typography>
+      <Typography variant="h7">{info.description} </Typography>
+      <p> </p>
+      <Typography variant="h6"> Category: </Typography>
+      <Typography variant="h7">{info.category} </Typography>
+
     </div>
   );
 }

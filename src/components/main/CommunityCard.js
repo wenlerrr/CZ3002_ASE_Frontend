@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Card,CardContent,CardMedia,Typography, Button} from '@material-ui/core';
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -30,7 +31,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
+  const [redirect, setRedirect] = useState(false);
+  const [communityID, setCommunityID] = useState("")
   const classes = useStyles();
+  const redirectFunction = id => {
+    setCommunityID(id);
+    setRedirect(true);
+  }
+  if(redirect) {
+    return <Redirect 
+    to={{
+      pathname: "/community/single",
+      state: { communityID }
+    }} />;
+  } else {
   return (
     <Card className={classes.card}>
       {sim? (<CardMedia className={classes.cover_small} image={sub.image}/>) :
@@ -48,14 +62,14 @@ export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
             <Typography variant="subtitle1" color="textSecondary">{sub.description}
             </Typography> </div>)}   
           
-          <Button variant="contained" colour='secondary'className={classes.button}> 
-          View
+          <Button variant="contained" colour='secondary'className={classes.button} onClick={()=> redirectFunction(sub._id)}> 
+          View 
             </Button>
             {sub.joined? (
-              <Button variant="contained" colour='secondary'className={classes.button} onClick={() => removeSub(index)}> 
+              <Button variant="contained" colour='secondary'className={classes.button} onClick={() => removeSub(sub._id)}> 
               Quit</Button>)
               : 
-              (<Button variant="contained" colour='secondary'className={classes.button} onClick={() => addSub(index)}> 
+              (<Button variant="contained" colour='secondary'className={classes.button} onClick={() => addSub(sub._id)}> 
               Join</Button>)
               }
             
@@ -63,4 +77,5 @@ export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
       </div>         
      </Card>
   );
+  }
 }

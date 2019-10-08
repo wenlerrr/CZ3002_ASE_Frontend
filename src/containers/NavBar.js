@@ -1,79 +1,124 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
-import { Dropdown, ButtonToolbar, DropdownButton } from 'react-bootstrap';
+import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import { fontFamily } from "@material-ui/system";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { Redirect } from "react-router-dom";
 
-class Navbar extends Component {
-    logout = e => {
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    title: {
+      flexGrow: 1,
+      color: "black"
+    }
+  }));
+
+  const NavBar = (props) => {
+    const classes = useStyles({});
+    const [redirect, setRedirect] = React.useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    const handleLogOut = e => {
         e.preventDefault();
-        this.props.logout();
+        props.logout();
     }
-    render() {
-        const { currentUser, logout } = this.props;
-        return (
-            <nav className="navbar navbar-expand-md">
-                    <div className="navbar-header" style={{marginRight: "10px", marginLeft: "10px"}}>
-                        JioBook
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+      return (
+        <div className={classes.root}>
+            <AppBar
+                position="static"
+                style={{ backgroundColor: "white" }}
+                elevation={3}
+            >
+                <Toolbar>
+                <Typography align="left" variant="h6" className={classes.title}>
+                    <Link to="/" style={{ textDecoration: "none" }}>
+                    JioBook
+                    </Link>
+                </Typography>
+                    <div>
+                    <Button
+                        aria-controls="simple-menu"
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                    >
+                        <MenuIcon color="primary" />
+                    </Button>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem>
+                        Signed in as <b> { ` ${props.currentUser.user.username}`}</b>
+                        </MenuItem>
+                        <MenuItem>
+                        <Link
+                            to="/explore"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Explore
+                        </Link>
+                        </MenuItem>
+                        <MenuItem>
+                        <Link
+                            to="/community"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            My Community
+                        </Link>
+                        </MenuItem>
+                        <MenuItem>
+                        <Link
+                            to="/create"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Create Community
+                        </Link>
+                        </MenuItem>
+                        <MenuItem>
+                        <Link
+                            to="/changePassword"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Change Password
+                        </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleLogOut}>Log out</MenuItem>
+                    </Menu>
                     </div>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link
-                                to="/"
-                                >
-                                    <i className="fas fa-home" style={{color: "black"}} />
-                                </Link>
-                            </li>
-                        </ul>
-                        <ul className="nav navbar-nav ml-auto">
-                            <ButtonToolbar>
-                                <DropdownButton 
-                                drop='left' 
-                                variant="secondary"
-                                title={ <span> <i className="fas fa-bars" /></span>}
-                                >
-                                    <Dropdown.Item>
-                                        Signed in as <b>{`${currentUser.user.username}`}</b>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <Link
-                                        to="/explore"
-                                        >
-                                            Explore
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <Link
-                                        to="/community"
-                                        >
-                                            My Community
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <Link
-                                        to="/create"
-                                        >
-                                            Create Community
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <Link
-                                        to="/changePassword"
-                                        >
-                                            Change Password
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Divider />
-                                    <Dropdown.Item>
-                                    <button className="btn btn-secondary" onClick={this.logout}>Log out</button>
-                                    </Dropdown.Item>
-                                </DropdownButton>
-                            </ButtonToolbar>
-                        </ul>
-            </nav>
-        );
-    }
-}
+                </Toolbar>
+            </AppBar>
+        </div>
+      );
+  };
 
 function mapStateToProps(state) {
     return {
@@ -81,4 +126,4 @@ function mapStateToProps(state) {
     };
 }
   
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout })(NavBar);
