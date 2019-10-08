@@ -49,8 +49,8 @@ export default function CreateCommunity(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [info,setInfo]= useState({
-    name: 'test name',
-    description: 'test description  ',
+    name: '',
+    description: '',
     image:'',
     category:''
   });

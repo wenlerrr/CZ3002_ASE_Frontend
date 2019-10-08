@@ -43,7 +43,6 @@ const Community = props => {
 
     return (
         <div className="container">
-            <p>These are the communities you subscribed to!!!!</p>
             <div>
             {subList.map((sub) => (
           <CommunityCard

@@ -10,28 +10,28 @@ import API from '../../services/api2';
 
 export default function SingleCommunityPage(props) {
     return(
-        <div>
-            <p>This is what you will see if u click open a community card</p>
+        <div className="container">          
             <Grid container spacing={3}>
-                <Grid item xs='8'>
+                <Grid item xs={8}>
                     <div>
+                        <p></p><p></p><p></p> <p></p>
                         <CommunityInfo 
                         image='https://source.unsplash.com/user/erondu'
                         name='Community name'
                         description='Long Community Description'
                         joined={true}></CommunityInfo>
-                        <p></p>
-                        <p></p>
+                        <p></p> <p></p>
                         <MemberBar></MemberBar>
                     </div>
                 </Grid>
-            <Grid item xs='4'>
-                <SimilarCommunities></SimilarCommunities>
-            </Grid>
-            <VideoGallery></VideoGallery>
-            <p></p>
-            <p></p>
-            <Forum></Forum>
+                <Grid item xs={4}>
+                <p></p><p></p><p></p> <p></p>
+                    <SimilarCommunities></SimilarCommunities>
+                </Grid>
+                <VideoGallery></VideoGallery>
+                <p></p>
+                <p></p>
+                <Forum></Forum>
             </Grid>
         </div>
     )
