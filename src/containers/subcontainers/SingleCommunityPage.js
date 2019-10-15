@@ -9,7 +9,6 @@ import Forum from '../../components/communityForum/forum';
 import API from '../../services/api2';
 // import ImageSlider from 'ac-react-simple-image-slider'
 import CommunityImageGallery from '../../components/community/communityImageGallery'
-import Image2Slider from '../../components/imageSlider/imageSlider'
 
 var { communityList } = require('../../data/CommunityList');
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
@@ -42,7 +41,7 @@ export default function SingleCommunityPage(props) {
                     <div>
                         <p></p><p></p><p></p> <p></p>
                         <CommunityInfo 
-                        // image='https://source.unsplash.com/user/erondu'
+                        // image='http://d23u81scbs00hn.cloudfront.net/logos/5da5e1fccc821b0012474a0e/46a259c0-ef5e-11e9-bb12-bf6b01996e4a.jpg'
                         image={community.image}
                         // name='Community name'
                         name={community.name}

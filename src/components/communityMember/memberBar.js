@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar,CssBaseline,Toolbar,Typography,CardMedia,Button,CardContent,Card,IconButton,Fab} from '@material-ui/core';
+import {AppBar,Collapse,CssBaseline,Toolbar,Typography,CardMedia,Button,CardContent,Card,IconButton,Fab} from '@material-ui/core';
 import Member from './member'
 
 
@@ -57,22 +57,26 @@ const useStyles = makeStyles(theme => ({
             <Typography className={classes.text} variant="h5" gutterBottom>
             Members
           </Typography>
-          {/* <Button edge="end" color="inherit" className={classes.toolbarButtons}
-         
-          >Show All</Button> */}
+          <Button edge="end" color="inherit" className={classes.toolbarButtons}
+          >Show All</Button>
          
           </Toolbar>
         </AppBar>
+
+          
+
         <Card className={classes.card}>
             
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Member></Member>
                     <Member></Member>
+                    <Member></Member>
+                  
                 </CardContent> 
                 
             </div>
-          
+        
             </Card>
         
         </Card>

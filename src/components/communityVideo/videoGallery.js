@@ -82,14 +82,14 @@ const useStyles = makeStyles(theme => ({
             Videos
           </Typography>
           <IconButton edge="end" color="inherit" className={classes.toolbarButtons}>
-            <Fab  edge="end" color="secondary" aria-label="add"  onClick={setOpen(true)}>
+            <Fab  edge="end" color="secondary" aria-label="add"  onClick={() =>setOpen(true)}>
               <Typography variant='h6'> +</Typography>
               </Fab>
           </IconButton> 
           </Toolbar>
         </AppBar>
         
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <Dialog open={open} onClose={() =>setOpen(false)} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title" >
                     <Typography variant="h5" justifyContent ='center'>New Video</Typography>
                 </DialogTitle>
@@ -104,10 +104,10 @@ const useStyles = makeStyles(theme => ({
                     /> */}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={setOpen(false)} color="primary">
+                    <Button onClick={() =>setOpen(false)} color="primary">
                       Cancel
                     </Button>
-                    <Button onClick={handlePost} color="primary">
+                    <Button onClick={() =>handlePost} color="primary">
                       Post
                     </Button>
                   </DialogActions>
