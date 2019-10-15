@@ -7,11 +7,10 @@ import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from '../../components/communityForum/forum';
 import API from '../../services/api2';
+import ImageSlider from 'ac-react-simple-image-slider'
+
 var { communityList } = require('../../data/CommunityList');
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
-
-
-
 
 
 export default function SingleCommunityPage(props) {
@@ -23,6 +22,17 @@ export default function SingleCommunityPage(props) {
       }
       ))[0])
      
+      const imageData=[
+          {
+              src:'https://source.unsplash.com/user/erondu',
+              title:'title 1'
+          },
+          {
+            src:'https://source.unsplash.com/user/erondu',
+            title:'title 2'
+        },
+      ]
+
     return(
         <div className="container">          
             <Grid container spacing={3}>
@@ -47,7 +57,11 @@ export default function SingleCommunityPage(props) {
                
                     <SimilarCommunities></SimilarCommunities>
                 </Grid>
+                <div>
+                    <ImageSlider height='480px' width='480px' data={imageData}/>                        
+                    </div>
                 <VideoGallery></VideoGallery>
+                    
                 <p></p>
                 <p></p>
                 <Forum></Forum>

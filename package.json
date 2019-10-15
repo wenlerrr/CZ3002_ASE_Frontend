@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.4.1",
     "@material-ui/icons": "^4.4.1",
+    "ac-react-simple-image-slider": "0.0.9",
     "axios": "^0.19.0",
     "formik": "^1.5.8",
     "jwt-decode": "^2.2.0",
