@@ -8,7 +8,7 @@ import MemberBar from "../../components/communityMember/memberBar";
 import Forum from '../../components/communityForum/forum';
 import API from '../../services/api2';
 import ImageSlider from 'ac-react-simple-image-slider'
-
+import CommunityImageGallery from '../../components/community/communityImageGallery'
 var { communityList } = require('../../data/CommunityList');
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
 
@@ -58,12 +58,13 @@ export default function SingleCommunityPage(props) {
                     <SimilarCommunities></SimilarCommunities>
                 </Grid>
                 <div>
-                    <ImageSlider height='480px' width='480px' data={imageData}/>                        
-                    </div>
+                    {/* <ImageSlider height='480px' width='480px' data={imageData}/>      */}
+                    <CommunityImageGallery></CommunityImageGallery>
+                    <p></p><p></p><p></p> <p></p>
+                </div>
                 <VideoGallery></VideoGallery>
-                    
-                <p></p>
-                <p></p>
+                <p></p><p></p><p></p> <p></p>
+
                 <Forum></Forum>
             </Grid>
         </div>

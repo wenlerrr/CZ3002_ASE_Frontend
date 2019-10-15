@@ -9,8 +9,8 @@ import Button from '@material-ui/core/Button';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card'
 import Video from './video'
-
-
+import Gallery from "react-photo-gallery";
+import {Player} from 'video-react';
 
 const useStyles = makeStyles(theme => ({
     text: {
@@ -49,8 +49,21 @@ const useStyles = makeStyles(theme => ({
   
   export default function VideoGallery(props) {
     const classes = useStyles();
-    
-    
+    const photos = [
+      {
+        src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+        width: 4,
+        height: 3
+      },
+    ]
+    const playVideo = index=> {
+      alert("Hello World!");
+      return (
+        <Player>
+          <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+        </Player>
+      );
+    }
   
     return (
       <div className="container">
@@ -68,20 +81,15 @@ const useStyles = makeStyles(theme => ({
         
 
         <Card className={classes.card}>
-        {/* <Carousel> */}
             <div className={classes.details}>
                 <CardContent className={classes.content} >
-                    <Video/>
-                    <Video/>
-                    <Video/>
+                   {/* <Gallery photos={photos} onClick={playVideo}></Gallery> */}
+                   <Video/>
                 </CardContent> 
                 
             </div>
-          {/* </Carousel> */}
-          </Card>
 
-            
-        
+          </Card>     
         </Card>
       </React.Fragment>
       </div>
