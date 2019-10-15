@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     
     const handlePost=()=>{
       setOpen(false);
-      //dk how the logic works help lah 
+      //upload
     }
     return (
       <div className="container">
