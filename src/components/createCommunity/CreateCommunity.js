@@ -4,13 +4,23 @@ import { CssBaseline,AppBar,Toolbar,Paper,Stepper,Step,StepLabel,Button,Link,Typ
 import { flexbox } from '@material-ui/system';
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
-
+import JioBook from '../../images/JioBook.png'
 const useStyles = makeStyles(theme => ({
+  main:{
+    // backgroundImage: "url(" + JioBook + ")",
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundPosition: 'center',
+   
+  },
   appBar: {
     position: 'relative',
   },
   layout: {
-    width:flexbox,
+    // width:flexbox,
+   
+    width:1000,
+    height:1200,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     margin:theme.spacing(2),
@@ -21,6 +31,12 @@ const useStyles = makeStyles(theme => ({
     },
   },
   paper: {
+    // backgroundImage: "url(" + JioBook + ")",
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundPosition: 'center',
+    width:900,
+    height:900,
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
@@ -77,12 +93,13 @@ export default function CreateCommunity(props) {
 
   return (
     <React.Fragment>
+      <div className={classes.main}>
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
       </AppBar>
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
+        <Paper className={classes.paper} elevation={10}>
+          <Typography component="h1" variant="h3" align="center">
             Create Community
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -95,11 +112,11 @@ export default function CreateCommunity(props) {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h4" gutterBottom>
                   Your community has been created!
                 </Typography>
                 <Typography variant="subtitle1">
-                  some fluff here
+                  {/* some fluff here */}
                 </Typography>
                 <Button className={classes.button}variant="contained"
                     color="primary">
@@ -130,6 +147,7 @@ export default function CreateCommunity(props) {
         </Paper>
         
       </main>
+      </div>
     </React.Fragment>
   );
 }

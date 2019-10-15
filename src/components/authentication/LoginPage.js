@@ -11,20 +11,22 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Poster from '../../images/Poster.png'
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100vh',
+    height: '50vh',
   },
   image: {
     //backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundImage: 'url(https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    // backgroundImage: 'url(/images/Poster.png)',
+    // backgroundImage: 'url(${Poster})',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'cover',
+    // backgroundPosition: 'center',
+    // margin: theme.spacing(0, 4),
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(10, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -72,10 +74,13 @@ export default function LoginPage(props) {
     <Container maxWidth="lg" height='lg'>
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+      <Grid item xs={false} sm={3} md={7} className={classes.image}> 
+      <img src={Poster} alt="Logo" />;</Grid>
+      {/* height="800" width='700' */}
+      <Grid item xs={12} sm={9} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4">
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
@@ -84,6 +89,7 @@ export default function LoginPage(props) {
               margin="normal"
               required
               fullWidth
+            
               id="email"
               label="Email Address"
               name="email"
