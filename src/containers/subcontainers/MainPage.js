@@ -53,8 +53,8 @@ const useStyles = makeStyles(theme => ({
   },
   exploreButton:{
     // marginTop: theme.spacing(8),
-    marginTop: theme.spacing(12),
-    marginLeft: theme.spacing(30),
+    marginTop: theme.spacing(20),
+    marginLeft: theme.spacing(35),
     padding: theme.spacing(3),
     align: 'center',
   },
@@ -155,7 +155,7 @@ export default function MainPage(props) {
                   <Typography variant="h5" color="inherit" paragraph>
                     Find like-minded individuals, you'll never be alone again.
                   </Typography> */}
-                  <Button className={classes.exploreButton} align='center'color="inherit" 
+                  <Button className={classes.exploreButton} align='center'color="primary" variant='contained'
                   onClick={e =>{props.offStart()}}>
                   <Typography variant="h6">Explore More</Typography>
                   </Button>
