@@ -118,11 +118,7 @@ export default function Register(props) {
       setErrorMessage("Password and confirmation password do not match.")
       error = true
      }
-     else if (!checkInput) {
-       setCheckInputError(true);
-       setErrorMessage("Please accept Terms and Conditions to continue.")
-       error = true
-     }
+     
      if (!error) {
         props
         .onAuth("signUp", {username, password, email})
@@ -199,15 +195,37 @@ export default function Register(props) {
                 error={confirmError}
               />
             </Grid>
-            <Grid item xs={12}>
+            
+            {errorMessage && (
+            <p style={{color: 'red'}}>{errorMessage}</p>
+          )}
+          <Grid item xs={12} >
+        <Typography variant="h6" gutterBottom>
+        
+        Upload a profile photo :
+        <p></p><p></p><p></p>
+        </Typography>
+        {/* <FileUpload/> */}
+        
+        <input
+        accept="image/*"
+        id="contained-button-file"
+        multiple
+        type="file"
+       />
+        <label htmlFor="contained-button-file">
+        <Button variant="contained" component="span" >
+          Upload
+        </Button>
+        
+        </label>
+      </Grid>
+      <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox name="checkInput" onChange={handleInputChange} value="allowExtraEmails" color="primary" />}
                 label="Email me for exciting new updates!"
               />
             </Grid>
-            {errorMessage && (
-            <p style={{color: 'red'}}>{errorMessage}</p>
-          )}
           <Button
             type="submit"
             fullWidth

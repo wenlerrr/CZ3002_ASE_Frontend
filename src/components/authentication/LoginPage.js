@@ -125,9 +125,9 @@ export default function LoginPage(props) {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link onClick= {() => {props.onForgetPassword()}}>
+                <Button onClick= {() => {props.onForgetPassword()}}>
                   Forgot password?
-                </Link>
+                </Button>
               </Grid>
               <Grid item>
                 <Button onClick = {e => {props.onSignUp()}}>

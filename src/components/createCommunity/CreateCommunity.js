@@ -115,8 +115,9 @@ export default function CreateCommunity(props) {
                 <Typography variant="h4" gutterBottom>
                   Your community has been created!
                 </Typography>
-                <Typography variant="subtitle1">
-                  {/* some fluff here */}
+                <Typography variant="h6">
+                 
+                  Thank you for contributing to the JioBook community! :)
                 </Typography>
                 <Button className={classes.button}variant="contained"
                     color="primary">
