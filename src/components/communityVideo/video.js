@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     //   paddingBottom: theme.spacing(2),
       height:400,
       width:500,
-      margin: 50,
+      marginRight: 50,
     },
     card: {
       height: '100%',
@@ -30,8 +30,11 @@ export default function Video(props){
     return(
         <Grid item className={classes.cardGrid}>
                 <Card className={classes.card}>
-                    <Player>
-                    <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+                    <Player
+                    poster="https://source.unsplash.com/2ShvY8Lf6l0/800x599"
+                    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                    >
+                    {/* <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /> */}
                     </Player>
 
                   <CardContent className={classes.cardContent}>

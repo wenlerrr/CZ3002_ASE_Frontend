@@ -7,8 +7,10 @@ import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from '../../components/communityForum/forum';
 import API from '../../services/api2';
-import ImageSlider from 'ac-react-simple-image-slider'
+// import ImageSlider from 'ac-react-simple-image-slider'
 import CommunityImageGallery from '../../components/community/communityImageGallery'
+import Image2Slider from '../../components/imageSlider/imageSlider'
+
 var { communityList } = require('../../data/CommunityList');
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
 
@@ -44,27 +46,26 @@ export default function SingleCommunityPage(props) {
                         image={community.image}
                         // name='Community name'
                         name={community.name}
-                        // description='Long Community Description'
+                        // description='Ballet is one of the most classical form of dance and is well known for its grace and intricate gestures. We are a fun bunch of ballet lovers and are looking for like-minded ballet dancers to form an item. Fret not if you are new to ballet, as we are more than willing to share the basics of ballet. '
                         description={community.description}
                         joined={community.joined}></CommunityInfo>
                         <p></p> <p></p>
                         <MemberBar></MemberBar>
                     </div>
                 </Grid>
-                <Grid item xs={4}>
-                    
-                <p></p><p></p><p></p> <p></p>
-               
-                    <SimilarCommunities></SimilarCommunities>
+                <Grid item xs={4}>    
+                <p></p><p></p><p></p> <p></p><SimilarCommunities></SimilarCommunities>
                 </Grid>
-                <div>
+                <Grid item xs={12}> 
                     {/* <ImageSlider height='480px' width='480px' data={imageData}/>      */}
                     <CommunityImageGallery></CommunityImageGallery>
                     <p></p><p></p><p></p> <p></p>
-                </div>
+                    </Grid>
+                {/* <Image2Slider></Image2Slider> */}
+                <Grid item xs={12}> 
                 <VideoGallery></VideoGallery>
                 <p></p><p></p><p></p> <p></p>
-
+                </Grid>
                 <Forum></Forum>
             </Grid>
         </div>

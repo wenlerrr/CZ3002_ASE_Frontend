@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card'
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import Box from '@material-ui/core/Box'
 
 
 // const primary = #2196f3;
@@ -20,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     },
     card:{
       display: 'flex',
-      
+      alignItems: 'flex-start',
+      flexGrow: 2,
     },
     list: {
       marginBottom: theme.spacing(2),
@@ -38,11 +40,15 @@ const useStyles = makeStyles(theme => ({
     cover: {
         width: 350,
         height: 250,
+        flexGrow: 2,
       },
     button:{
         right:0,
         position:"flex",
         top:0,
+    },
+    content: {
+      width: '450px'
     }
   }));
   
@@ -55,7 +61,7 @@ const useStyles = makeStyles(theme => ({
       <div className="container">
       <React.Fragment>
         <CssBaseline />
-        <Card clasName={classes.main}>
+        <Box clasName={classes.main}>
         <AppBar  position='relative' color="primary" className={classes.appBar}>
           <Toolbar>
             <Typography className={classes.text} variant="h5" gutterBottom>
@@ -91,7 +97,7 @@ const useStyles = makeStyles(theme => ({
           
             </Card>
         
-        </Card>
+        </Box>
       </React.Fragment>
       </div>
     );

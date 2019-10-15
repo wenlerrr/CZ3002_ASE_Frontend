@@ -2,7 +2,8 @@ export const photos = [
   {
     src: "https://cdn.sfballet.org/2019/09/04205702/Dancers-copy.jpg",
     width: 7,
-    height: 9
+    height: 9,
+    
   },
   {
     src: "https://cdn.sfballet.org/app/uploads/2019/02/04124527/de-Sola-Sasha.jpg",

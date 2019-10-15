@@ -10,6 +10,12 @@ const useStyles = makeStyles(theme => ({
     justify:'space-between',
     margin:'40px',
   },
+  card_small: {
+    display: 'flex',
+    flexDirection: 'row',
+    justify:'space-between',
+    margin:'0px',
+  },
   details: {
     display: 'flex',
     flexDirection: 'column',
@@ -23,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
   cover_small:{
     width: 150,
-    height: 100,
+    height: 120,
   },
   button:{
     margin:5
@@ -47,14 +53,13 @@ export default function CommunityCard({sim, key,index,sub,addSub,removeSub}) {
     }} />;
   } else {
   return (
-    <Card className={classes.card}>
-      {sim? (<CardMedia className={classes.cover_small} image={sub.image}/>) :
-     ( <CardMedia className={classes.cover}image={sub.image}/> )}   
+    <Card className={sim? classes.card_small: classes.card}>
+    <CardMedia className={sim? classes.cover_small: classes.cover} image={sub.image}/>
       <div className={classes.details}>
         <CardContent className={classes.content}>
           
           {sim?  
-          (<Typography variant="h5">{sub.name}
+          (<Typography variant="h6">{sub.name}
           </Typography>)
           :
             (<div>
