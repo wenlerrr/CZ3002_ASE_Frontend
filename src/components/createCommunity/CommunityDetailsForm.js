@@ -1,6 +1,5 @@
-import React,{useState} from 'react';
-import {Grid,Typography,TextField,Button,FormControlLabel,Checkbox,TextareaAutosize,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core';
-import FileUpload from '../upload/FileUpload'
+import React from 'react';
+import {Grid,Typography,TextField,Button,FormControl,Select,MenuItem} from '@material-ui/core';
 var { categoryList } = require('../../data/CategoryList');
 
 export default function CommunityDetailsForm({info,setInfo}) {

@@ -1,10 +1,8 @@
 import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline,AppBar,Toolbar,Paper,Stepper,Step,StepLabel,Button,Link,Typography} from '@material-ui/core';
-import { flexbox } from '@material-ui/system';
+import { CssBaseline,AppBar,Paper,Stepper,Step,StepLabel,Button,Typography} from '@material-ui/core';
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
-import JioBook from '../../images/JioBook.png'
 const useStyles = makeStyles(theme => ({
   main:{
     // backgroundImage: "url(" + JioBook + ")",

@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
-import {Typography, Collapse, Paper,Card,CardContent,Button,CardMedia,IconButton,Fab,Dialog,DialogTitle,DialogActions,DialogContent,DialogContentText,TextField,} from '@material-ui/core';
+import {Typography, Collapse,Card,CardContent,Button,IconButton,Fab,Dialog,DialogTitle,DialogActions,DialogContent,DialogContentText,TextField,} from '@material-ui/core';
 import Video from './video'
-import Gallery from "react-photo-gallery";
 import {Player} from 'video-react';
 
 const useStyles = makeStyles(theme => ({
