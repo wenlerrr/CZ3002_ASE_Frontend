@@ -3,12 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline,AppBar,Paper,Stepper,Step,StepLabel,Button,Typography} from '@material-ui/core';
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
+import background2 from '../../images/bckgrnd.jpg'
 const useStyles = makeStyles(theme => ({
   main:{
-    // backgroundImage: "url(" + JioBook + ")",
-    // backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
-    // backgroundPosition: 'center',
+    backgroundImage: "url(" + background2 + ")",
+    backgroundSize: 'cover',
+    // backgroundSize: '110%',
+    // top: '0',
+    // width: '2000px',
+    height: '900px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
    
   },
   appBar: {
@@ -33,9 +38,10 @@ const useStyles = makeStyles(theme => ({
     // backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
     // backgroundPosition: 'center',
-    width:900,
-    height:900,
-    marginTop: theme.spacing(3),
+    // backgroundColor: "transparent",
+    // width:800,
+    // height:80,
+    marginTop: theme.spacing(4),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
@@ -46,6 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
+    backgroundColor: "transparent"
   },
   buttons: {
     display: 'flex',
@@ -99,6 +106,7 @@ export default function CreateCommunity(props) {
         <Paper className={classes.paper} elevation={10}>
           <Typography component="h1" variant="h3" align="center">
             Create Community
+            <p></p>
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map(label => (

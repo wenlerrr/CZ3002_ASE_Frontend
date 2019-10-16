@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     // backgroundSize: 'cover',
     // backgroundPosition: 'center',
     // margin: theme.spacing(0, 4),
+    width:'620px',
   },
   paper: {
     margin: theme.spacing(10, 4),
@@ -36,6 +37,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function LoginPage(props) {
   const classes = useStyles();
+  const [passwordError, setPasswordError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -65,10 +68,10 @@ export default function LoginPage(props) {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-      <Grid item xs={false} sm={3} md={7} className={classes.image}> 
-      <img src={Poster} alt="Logo" />;</Grid>
+      <Grid item xs={false} sm={3} md={6} > 
+      <img className={classes.image} src={Poster} alt="Logo" /></Grid>
       {/* height="800" width='700' */}
-      <Grid item xs={12} sm={9} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="h4">
             Sign in
@@ -86,6 +89,7 @@ export default function LoginPage(props) {
               autoComplete="email"
               autoFocus
               onChange={handleChange}
+              error={emailError}
             />
             <TextField
               variant="outlined"
@@ -98,6 +102,7 @@ export default function LoginPage(props) {
               id="password"
               autoComplete="current-password"
               onChange={handleChange}
+              error={passwordError}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
