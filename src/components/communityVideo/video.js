@@ -33,6 +33,7 @@ export default function Video(props){
                     <Player
                     poster="https://source.unsplash.com/2ShvY8Lf6l0/800x599"
                     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                    // src='http://d1jrk8wdv6s1dj.cloudfront.net/5da5f14f6a3dfe00125d5d93/8d6160f0-ef67-11e9-9028-09221a6c4273.mp4'
                     >
                     {/* <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /> */}
                     </Player>
