@@ -14,7 +14,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar'
-
+import JioBook from '../../images/JioBook.png'
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
     padding: theme.spacing(30),
-    backgroundImage: 'url(https://source.unsplash.com/user/erondu)',
+
+    backgroundImage: "url(" + JioBook + ")",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -36,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     left: 0,
     // backgroundColor: 'rgba(0,0,0,.3)',
-    backgroundColor: 'rgba(0,0,.2,.3)',
+    // backgroundColor: 'rgba(0,0,.2,.3)',
   },
   mainFeaturedPostContent: {
     // position: 'relative',
@@ -44,14 +45,18 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
-      paddingRight: 0,
+      paddingRight: 3,
     },
   },
   mainGrid: {
     marginTop: theme.spacing(3),
   },
   exploreButton:{
-    margin: theme.spacing(3),
+    // marginTop: theme.spacing(8),
+    marginTop: theme.spacing(20),
+    marginLeft: theme.spacing(35),
+    padding: theme.spacing(3),
+    align: 'center',
   },
   card: {
     display: 'flex',
@@ -91,22 +96,22 @@ const useStyles = makeStyles(theme => ({
 
 const featuredPosts = [
     {
-      image:'https://source.unsplash.com/user/erondu',
-      title: 'Rob Boss',
+      image:'https://media.licdn.com/dms/image/C4D03AQE_qihydDjB8w/profile-displayphoto-shrink_800_800/0?e=1576713600&v=beta&t=PKNisRKnmhHS50lphHhH9KHDsuwu9JBhX5fwCjug-FM',
+      title: 'Amber Chong',
       description:
-        'Thanks to JioBook, I am able to find a community that loves drawing!',
+        ' Having not joined any camps before school started, JioBook was a lifesaver and enabled me to meet great friends nonetheless.' ,
     },
     {
-        image:'https://source.unsplash.com/user/erondu',
-        title: 'Joan Cena',
+        image:'https://media.licdn.com/dms/image/C5103AQEy274SIgkMoQ/profile-displayphoto-shrink_800_800/0?e=1576713600&v=beta&t=yixvUu8NvwoI4izkCtwltC6L-VgOL5vNZ-Y8IReyxFo',
+        title: 'Felix Tan',
         description:
-            'I think I am hotter than Wilbur.I think I am hotter than Wilbur.',
+            ' I didn’t know there were so many people interested in astrology too until I joined JioBook! What an eye-opener! ',
     },
     {
-        image:'https://source.unsplash.com/user/erondu',
-        title: 'Mary Lamb',
+        image:'https://media.licdn.com/dms/image/C5103AQEIUXVDoBDOYA/profile-displayphoto-shrink_800_800/0?e=1576713600&v=beta&t=VI41_FpCoECu4rozChJ3ceaVvYRqLvYlrEcCJmdabVA',
+        title: 'Qin Da Lim',
         description:
-          "Such life changing app. Too sexy to resist. That's right",
+          "JioBook is a must try! Thanks to the platform, I managed to find really good friends who I can trust and talk to on a regular basis!          ",
       },
   ];
 
@@ -140,28 +145,21 @@ export default function MainPage(props) {
         <main>
           {/* Main featured post */}
           <Paper className={classes.mainFeaturedPost}>
-            {/* Increase the priority of the hero background image */}
-            {
-              <img
-                style={{ display: 'none' }}
-                src="https://source.unsplash.com/user/erondu"
-                alt="background"
-              />
-            }
+            
             <div className={classes.overlay} />
             <Grid container>
-              <Grid item md={6}>
-                <div className={classes.mainFeaturedPostContent} align='center' >
-                  <Typography component="h1" variant="h3" color="inherit" align='center' gutterBottom>
+              <Grid item >
+                  {/* <Typography component="h1" variant="h3" color="inherit" align='center' gutterBottom>
                     JioBook
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
                     Find like-minded individuals, you'll never be alone again.
-                  </Typography>
-                  <Button className={classes.exploreButton}color="inherit" onClick={e =>{props.offStart()}}>
-                        Explore More
+                  </Typography> */}
+                  <Button className={classes.exploreButton} align='center'color="primary" variant='contained'
+                  onClick={e =>{props.offStart()}}>
+                  <Typography variant="h6">Explore More</Typography>
                   </Button>
-                </div>
+                {/* </div> */}
               </Grid>
             </Grid>
           </Paper>
@@ -176,11 +174,15 @@ export default function MainPage(props) {
                       <CardContent>
                       <Avatar alt="Image" 
                       src= {post.image} 
+                      // src='https://media.licdn.com/dms/image/C4D03AQE_qihydDjB8w/profile-displayphoto-shrink_800_800/0?e=1576713600&v=beta&t=PKNisRKnmhHS50lphHhH9KHDsuwu9JBhX5fwCjug-FM'
+                      // src='https://randomuser.me/photos'
                       className={classes.avatar} />
                         <Typography component="h2" variant="h5">
+                          <p></p>
                           {post.title}
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
+                        <p></p>
                           {post.description}
                         </Typography>
                       </CardContent>
@@ -195,26 +197,32 @@ export default function MainPage(props) {
           <Grid container spacing={5} className={classes.mainGrid}>
             {/* Main content */}
             <Grid item xs={12} md={8}>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h5" gutterBottom>
                 About JioBook
               </Typography>
               <Divider />
-              {/* {posts.map(post => (
-                <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-                  {post}
-                </Markdown>
-              ))} */}
+              <Typography variant="h6" gutterBottom>
+              <p></p>
+              Are you tired of spending your lunch breaks alone in your university? Are you eager to meet exciting new pals to share your passions and school struggles with? University doesn’t just have to be a ‘YOU’niversity, instead let it be a Utopia for you starting today!
+              <p></p><p></p>
+              By creating an account on JioBook, you will be able to search for communities that are of your interest area, view their pages, and join them to discover like-minded individuals. Our state-of-the-art algorithm will also recommend you communities you may be interested in based on the communities you have already joined and the people within them. The possibilities for social interaction and self-discovery are endless. 
+              <p></p> <p></p>
+              Wait no longer, and join JioBook to start discovering today!
+              </Typography>
             </Grid>
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                   About Us
                 </Typography>
-                <Typography>
-                  We are 6sigma we damn cool ohyeah.
-                  Why am i coding this idk but it looks nice so 
+                <Typography variant="h6">
+                Here at 6 Sigma, we are committed to helping university students expand their social circles and lead a more fulfilling and enriching campus life. 
+                <p></p> <p></p>
+                Being students ourselves, we know the challenges of making new friends on campus, and that gave us the inspiration for coming up with JioBook. 
+                <p></p> <p></p>
+                It really warms our hearts to know that somewhere out there, people using our platform have benefited from it and are making connections that will hopefully last throughout their lifetime. 
                 </Typography>
               </Paper>
               {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
@@ -242,10 +250,11 @@ export default function MainPage(props) {
       <footer className={classes.footer}>
         <Container maxWidth="lg">
           <Typography variant="h6" align="center" gutterBottom>
-            Footer
+          Team 6 Sigma, Copyright © 2019. All rights reserved.
           </Typography>
           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            I am just a footer, why do i need a footer? Oh just to make it look nice :)
+          For any enquiries, contact us at 6Sigma@JioBook.com.
+
           </Typography>
         </Container>
       </footer>

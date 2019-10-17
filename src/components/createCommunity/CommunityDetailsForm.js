@@ -1,6 +1,5 @@
-import React,{useState} from 'react';
-import {Grid,Typography,TextField,Button,FormControlLabel,Checkbox,TextareaAutosize,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core';
-import FileUpload from '../upload/FileUpload'
+import React from 'react';
+import {Grid,Typography,TextField,Button,FormControl,Select,MenuItem} from '@material-ui/core';
 var { categoryList } = require('../../data/CategoryList');
 
 export default function CommunityDetailsForm({info,setInfo}) {
@@ -23,7 +22,7 @@ export default function CommunityDetailsForm({info,setInfo}) {
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={12} >
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             Community Name
           </Typography>
           <TextField
@@ -37,8 +36,10 @@ export default function CommunityDetailsForm({info,setInfo}) {
         </Grid>
      
         <Grid item xs={12} >
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h5" gutterBottom>
+          <p></p><p></p><p></p>
           Community Description
+          <p></p><p></p><p></p>
           </Typography>
           <TextField
               required
@@ -47,14 +48,16 @@ export default function CommunityDetailsForm({info,setInfo}) {
               fullWidth
               value={info.description}
               onChange={e => setDes(e.target.value)}
-              placeholder="Describe more about your community"
+              // placeholder="Describe more about your community"
               multiline='True'
           />
         </Grid>
 
         <Grid item xs={12} >
-          <Typography variant="h6" >
+          <Typography variant="h5" >
+          <p></p><p></p><p></p>
           Category Selection
+          <p></p><p></p><p></p>
           </Typography>
           <FormControl>
           {/* <InputLabel htmlFor="age-simple">Category</InputLabel> */}
@@ -95,8 +98,10 @@ export default function CommunityDetailsForm({info,setInfo}) {
       </Grid>
 
       <Grid item xs={12} >
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom>
+        <p></p><p></p><p></p>
         Upload a profile photo for this community
+        <p></p><p></p><p></p>
         </Typography>
         {/* <FileUpload/> */}
         

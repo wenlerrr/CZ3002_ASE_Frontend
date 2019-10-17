@@ -1,20 +1,12 @@
-import React, { Component, useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Card } from '@material-ui/core';
+import React, { useState } from 'react';
+import {makeStyles,Container,Paper,Button,CssBaseline,TextField,FormControlLabel,Checkbox,Grid,Typography} from '@material-ui/core';
+import Poster from '../../images/Poster.png'
+
 
 const useStyles = makeStyles(theme => ({
-    
+  root: {
+    height: '50vh',
+  },
   main: {
     marginTop: '135px', 
     maxWidth: '400px', 
@@ -22,9 +14,13 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '20px 20px', 
     backgroundColor: 'white',
  },
-    
+   image:{
+      width:'620px',
+   } ,
     paper: {
-      marginTop: theme.spacing(8),
+      // marginTop: theme.spacing(10,4),
+      marginTop:'50px',
+      margin:'40px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -118,11 +114,7 @@ export default function Register(props) {
       setErrorMessage("Password and confirmation password do not match.")
       error = true
      }
-     else if (!checkInput) {
-       setCheckInputError(true);
-       setErrorMessage("Please accept Terms and Conditions to continue.")
-       error = true
-     }
+     
      if (!error) {
         props
         .onAuth("signUp", {username, password, email})
@@ -136,11 +128,19 @@ export default function Register(props) {
   }
 
   return (
-    <div className="container" style={{marginTop: '135px', maxWidth: '500px', padding: '10px', borderRadius: '20px 20px', backgroundColor:"white"}}>
-    {/* <Card component="main" maxwidth='xs' spacing={24}>  */}
+    // <div className="container" style={{marginTop: '135px', maxWidth: '500px', padding: '10px', borderRadius: '20px 20px', backgroundColor:"white"}}>
+    // {/* <Card component="main" maxwidth='xs' spacing={24}>  */}
+    //   <CssBaseline />
+    <Container maxWidth="lg" height='lg'>
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
+      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+      <Grid item xs={false} sm={3} md={6} > 
+      <img className={classes.image} src={Poster} alt="Logo" /></Grid>
+      {/* height="800" width='700' */}
+      <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
           Sign up
         </Typography>
         <form className={classes.form} >
@@ -199,15 +199,37 @@ export default function Register(props) {
                 error={confirmError}
               />
             </Grid>
-            <Grid item xs={12}>
+            
+            {errorMessage && (
+            <p style={{color: 'red'}}>{errorMessage}</p>
+          )}
+          <Grid item xs={12} >
+        <Typography variant="h6" gutterBottom>
+        
+        Upload a profile photo :
+        <p></p><p></p><p></p>
+        </Typography>
+        {/* <FileUpload/> */}
+        
+        <input
+        accept="image/*"
+        id="contained-button-file"
+        multiple
+        type="file"
+       />
+        <label htmlFor="contained-button-file">
+        <Button variant="contained" component="span" >
+          Upload
+        </Button>
+        
+        </label>
+      </Grid>
+      <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox name="checkInput" onChange={handleInputChange} value="allowExtraEmails" color="primary" />}
                 label="Email me for exciting new updates!"
               />
             </Grid>
-            {errorMessage && (
-            <p style={{color: 'red'}}>{errorMessage}</p>
-          )}
           <Button
             type="submit"
             fullWidth
@@ -229,6 +251,9 @@ export default function Register(props) {
         </form>
       </div>
     {/* </Card> */}
-  </div> 
+  {/*</div>  */}
+  </Grid>
+    </Grid>
+    </Container>
   ); 
 }

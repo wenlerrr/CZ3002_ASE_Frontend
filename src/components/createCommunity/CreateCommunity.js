@@ -1,16 +1,29 @@
 import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline,AppBar,Toolbar,Paper,Stepper,Step,StepLabel,Button,Link,Typography} from '@material-ui/core';
-import { flexbox } from '@material-ui/system';
+import { CssBaseline,AppBar,Paper,Stepper,Step,StepLabel,Button,Typography} from '@material-ui/core';
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
-
+import background2 from '../../images/bckgrnd.jpg'
 const useStyles = makeStyles(theme => ({
+  main:{
+    backgroundImage: "url(" + background2 + ")",
+    backgroundSize: 'cover',
+    // backgroundSize: '110%',
+    // top: '0',
+    // width: '2000px',
+    height: '900px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+   
+  },
   appBar: {
     position: 'relative',
   },
   layout: {
-    width:flexbox,
+    // width:flexbox,
+   
+    width:1000,
+    height:1200,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     margin:theme.spacing(2),
@@ -21,7 +34,14 @@ const useStyles = makeStyles(theme => ({
     },
   },
   paper: {
-    marginTop: theme.spacing(3),
+    // backgroundImage: "url(" + JioBook + ")",
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundPosition: 'center',
+    // backgroundColor: "transparent",
+    // width:800,
+    // height:80,
+    marginTop: theme.spacing(4),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
@@ -32,6 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
+    backgroundColor: "transparent"
   },
   buttons: {
     display: 'flex',
@@ -77,13 +98,15 @@ export default function CreateCommunity(props) {
 
   return (
     <React.Fragment>
+      <div className={classes.main}>
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
       </AppBar>
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
+        <Paper className={classes.paper} elevation={10}>
+          <Typography component="h1" variant="h3" align="center">
             Create Community
+            <p></p>
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map(label => (
@@ -95,11 +118,12 @@ export default function CreateCommunity(props) {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h4" gutterBottom>
                   Your community has been created!
                 </Typography>
-                <Typography variant="subtitle1">
-                  some fluff here
+                <Typography variant="h6">
+                 
+                  Thank you for contributing to the JioBook community! :)
                 </Typography>
                 <Button className={classes.button}variant="contained"
                     color="primary">
@@ -130,6 +154,7 @@ export default function CreateCommunity(props) {
         </Paper>
         
       </main>
+      </div>
     </React.Fragment>
   );
 }

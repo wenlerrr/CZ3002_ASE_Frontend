@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { Formik } from 'formik'
 import { object, ref, string } from 'yup'
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import FormControl from '@material-ui/core/FormControl'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import Button from '@material-ui/core/Button'
-import Paper from '@material-ui/core/Paper'
+import {Paper,Button,Typography,FormHelperText,FormControl,InputLabel,Input} from '@material-ui/core'
 
 import Spinner from './Spinner'
 import Alert from './Alert'
@@ -100,6 +95,9 @@ export default class FormPasswordReset extends Component {
             <Spinner />
           ) : (
             <Paper className="form form--wrapper" elevation={10}>
+               <Typography component="h1" variant="h3" style={{ marginTop: '100px' }}>
+                Reset Password
+            </Typography>
               <form className="form" onSubmit={handleSubmit}>
                 <FormControl fullWidth margin="dense">
                   <InputLabel

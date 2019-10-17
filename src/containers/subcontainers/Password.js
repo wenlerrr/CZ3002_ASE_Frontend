@@ -9,9 +9,7 @@ const Password = props => {
     return (
         // <div className="container">
         <div className="App">
-            <Typography component="h1" variant="h3" style={{ margin: '16px 0' }}>
-                Reset Password
-            </Typography>
+            
             <FormPasswordReset />
         </div>
     )

@@ -1,12 +1,7 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
   toolbar: {

@@ -1,16 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import CardContent from '@material-ui/core/CardContent';
-import Card from '@material-ui/core/Card'
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import {AppBar,CssBaseline,Toolbar,Typography,Button,CardContent,Card} from '@material-ui/core';
 import Member from './member'
+
 
 const useStyles = makeStyles(theme => ({
     text: {
@@ -43,12 +35,16 @@ const useStyles = makeStyles(theme => ({
     content:{
       display:'flex',
       flexDirection:'row',
-    }
+    },
+    toolbarButtons: {
+      marginLeft: "auto",
+      marginRight: -12
+    },
   }));
   
   export default function MemberBar(props) {
     const classes = useStyles();
-    
+    const [showAllMember, setShowAllMember]=useState(false);
     
   
     return (
@@ -61,19 +57,26 @@ const useStyles = makeStyles(theme => ({
             <Typography className={classes.text} variant="h5" gutterBottom>
             Members
           </Typography>
-          
+          <Button edge="end" color="inherit" className={classes.toolbarButtons}
+          >Show All</Button>
+         
           </Toolbar>
         </AppBar>
+
+          
+
         <Card className={classes.card}>
             
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Member></Member>
                     <Member></Member>
+                    <Member></Member>
+                  
                 </CardContent> 
                 
             </div>
-          
+        
             </Card>
         
         </Card>
