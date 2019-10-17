@@ -17,16 +17,16 @@ const useStyles = makeStyles(theme => ({
     margin: "40px"
   },
   card_small: {
-    display: 'flex',
-    flexDirection: 'row',
-    justify:'space-between',
-    margin:'0px',
+    display: "flex",
+    flexDirection: "row",
+    justify: "space-between",
+    margin: "0px"
   },
   card_small: {
-    display: 'flex',
-    flexDirection: 'row',
-    justify:'space-between',
-    margin:'0px',
+    display: "flex",
+    flexDirection: "row",
+    justify: "space-between",
+    margin: "0px"
   },
   details: {
     display: "flex",
@@ -41,15 +41,8 @@ const useStyles = makeStyles(theme => ({
   },
   cover_small: {
     width: 150,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    height: 100
-=======
-    height: 120,
->>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
-=======
-    height: 120,
->>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
+
+    height: 120
   },
   button: {
     margin: 5
@@ -82,7 +75,6 @@ export default function CommunityCard({
       />
     );
   } else {
-<<<<<<< HEAD
     return (
       <Card className={classes.card}>
         {sim ? (
@@ -112,26 +104,6 @@ export default function CommunityCard({
               onClick={() => redirectFunction(sub._id)}
             >
               View
-=======
-  return (
-    <Card className={sim? classes.card_small: classes.card}>
-    <CardMedia className={sim? classes.cover_small: classes.cover} image={sub.image}/>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          
-          {sim?  
-          (<Typography variant="h6">{sub.name}
-          </Typography>)
-          :
-            (<div>
-            <Typography component="h4" variant="h4">{sub.name}
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">{sub.description}
-            </Typography> </div>)}   
-          
-          <Button variant="contained" colour='secondary'className={classes.button} onClick={()=> redirectFunction(sub._id)}> 
-          View 
->>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
             </Button>
             {sub.joined ? (
               <Button
