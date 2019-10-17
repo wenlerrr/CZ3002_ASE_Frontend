@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
@@ -7,6 +8,11 @@ import {
   Typography,
   Button
 } from "@material-ui/core";
+=======
+import React, {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {Card,CardContent,CardMedia,Typography, Button} from '@material-ui/core';
+>>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +21,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justify: "space-between",
     margin: "40px"
+  },
+  card_small: {
+    display: 'flex',
+    flexDirection: 'row',
+    justify:'space-between',
+    margin:'0px',
   },
   card_small: {
     display: 'flex',
@@ -36,7 +48,11 @@ const useStyles = makeStyles(theme => ({
   cover_small: {
     width: 150,
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 100
+=======
+    height: 120,
+>>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
 =======
     height: 120,
 >>>>>>> d1911636a38fd113294e43bbf5086fa8c2aac007
