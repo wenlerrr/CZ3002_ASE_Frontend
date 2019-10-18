@@ -4,6 +4,7 @@ import { CssBaseline,AppBar,Paper,Stepper,Step,StepLabel,Button,Typography} from
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
 import background2 from '../../images/bckgrnd.jpg'
+
 const useStyles = makeStyles(theme => ({
   main:{
     backgroundImage: "url(" + background2 + ")",

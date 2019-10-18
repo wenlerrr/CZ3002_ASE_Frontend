@@ -13,6 +13,8 @@ import SimilarCommunities from "../../components/community/similarCommunities";
 import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from "../../components/Forum/Forum";
+import CommunityImageGallery from '../../components/community/communityImageGallery'
+
 import API from "../../services/api2";
 var { communityList } = require("../../data/CommunityList");
 var { joinedCommunityList } = require("../../data/JoinedCommunityList");
@@ -55,6 +57,7 @@ export default function SingleCommunityPage(props) {
           <p></p> <p></p>
           <SimilarCommunities></SimilarCommunities>
         </Grid>
+        <CommunityImageGallery></CommunityImageGallery>
         <VideoGallery></VideoGallery>
         <p></p>
         <p></p>
