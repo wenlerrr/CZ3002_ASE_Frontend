@@ -4,19 +4,28 @@ const postsData = [
     title: "Take out the trash",
     description: "You are trashyy",
     date: "Today",
-    person: "/static/images/avatar/1.jpg",
+    person:
+      "https://randomuser.me/api/portraits/men/" +
+      Math.floor(Math.random() * 50 + 1) +
+      ".jpg",
     reply: [
       {
         id: 2000000000000,
         username: "Raymond",
         comment: "YESSSS!",
-        person: "https://source.unsplash.com/user/erondu"
+        person:
+          "https://randomuser.me/api/portraits/men/" +
+          Math.floor(Math.random() * 50 + 1) +
+          ".jpg"
       },
       {
         id: 2000000000000,
         username: "Wen Le",
         comment: "NOOOO!",
-        person: "https://source.unsplash.com/user/erondu"
+        person:
+          "https://randomuser.me/api/portraits/women/" +
+          Math.floor(Math.random() * 50 + 1) +
+          ".jpg"
       }
     ]
   },
@@ -25,7 +34,10 @@ const postsData = [
     title: "Grocery shopping",
     description: "Shopppingg leggooo",
     date: "",
-    person: "/static/images/avatar/2.jpg",
+    person:
+      "https://randomuser.me/api/portraits/men/" +
+      Math.floor(Math.random() * 50 + 1) +
+      ".jpg",
     reply: []
   },
   {
@@ -33,7 +45,10 @@ const postsData = [
     title: "Clean gecko tank",
     description: "Yashh! I love gecko",
     date: "Yesterday",
-    person: "/static/images/avatar/3.jpg",
+    person:
+      "https://randomuser.me/api/portraits/women/" +
+      Math.floor(Math.random() * 50 + 1) +
+      ".jpg",
     reply: []
   },
   {
@@ -41,7 +56,10 @@ const postsData = [
     title: "Mow lawn",
     description: "MOO Moo",
     date: "",
-    person: "/static/images/avatar/4.jpg",
+    person:
+      "https://randomuser.me/api/portraits/women/" +
+      Math.floor(Math.random() * 50 + 1) +
+      ".jpg",
     reply: []
   },
   {
@@ -49,7 +67,10 @@ const postsData = [
     title: "Catch up on Arrested Development",
     description: "",
     date: "",
-    person: "/static/images/avatar/5.jpg",
+    person:
+      "https://randomuser.me/api/portraits/men/" +
+      Math.floor(Math.random() * 50 + 1) +
+      ".jpg",
     reply: []
   }
 ];

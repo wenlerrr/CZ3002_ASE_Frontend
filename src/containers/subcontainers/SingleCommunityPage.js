@@ -26,6 +26,8 @@ export default function SingleCommunityPage(props) {
     })[0]
   );
 
+  const { username } = props.currentUser.user;
+
   return (
     <div className="container">
       <Grid container spacing={3}>
@@ -56,7 +58,7 @@ export default function SingleCommunityPage(props) {
         <VideoGallery></VideoGallery>
         <p></p>
         <p></p>
-        <Forum></Forum>
+        <Forum username={username}></Forum>
       </Grid>
     </div>
   );

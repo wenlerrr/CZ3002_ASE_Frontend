@@ -91,7 +91,7 @@ class Posts extends Component {
           )}
           <ListItem button>
             <ListItemAvatar>
-              <Avatar alt="Profile Picture" src={this.props.person} />
+              <Avatar alt="Profile Picture" src={this.props.item.person} />
             </ListItemAvatar>
             <ListItemText
               primary={this.props.item.title}

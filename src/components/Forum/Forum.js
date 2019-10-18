@@ -54,9 +54,9 @@ class Forum extends Component {
 
     const newReply = {
       id: new Date().getTime(),
-      username: "currentUsername",
+      username: this.props.username,
       comment: comment,
-      person: "https://source.unsplash.com/user/erondu"
+      person: "https://randomuser.me/api/portraits/men/1.jpg"
     };
 
     this.setState(prevState => ({
