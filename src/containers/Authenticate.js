@@ -36,17 +36,17 @@ const Authenticate = props => {
           <div>
               {(forgetPassword) ? (
                 <div>
-                  <ForgetPassword {...props} />
+                  <ForgetPassword offForgetPassword={offForgetPassword} {...props} />
                 </div>
               ) : (
                 <div>
                   {(logIn) ? (
                       <div>
-                          <LoginPage onForgetPassword={onForgetPassword} onSignUp={onSignUp} { ...props } />
+                          <LoginPage onStart={onStart} onForgetPassword={onForgetPassword} onSignUp={onSignUp} { ...props } />
                       </div>
                   ) : (
                       <div>
-                          <Register onLogIn={onLogIn} {...props } />
+                          <Register onStart={onStart} onLogIn={onLogIn} {...props } />
                       </div>
                   )}
                 </div>

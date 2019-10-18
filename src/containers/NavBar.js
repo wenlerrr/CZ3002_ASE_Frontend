@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
                         onClose={handleClose}
                     >
                         <MenuItem>
-                        Signed in as <b> { ` ${props.currentUser.user.username}`}</b>
+                        Signed in as <b style={{marginLeft: "5px"}}> { ` ${props.currentUser.user.username}`}</b>
                         </MenuItem>
                         <MenuItem>
                         <Link

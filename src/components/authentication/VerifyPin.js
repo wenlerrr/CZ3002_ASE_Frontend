@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 export default function VerifyPin(props) {
     const classes = useStyles();
 
-    const [OTP, setOTP] = useState("");
     return(
         <div className="container" style={{marginTop: '135px', maxWidth: '500px', padding: '10px', borderRadius: '20px 20px', backgroundColor:"white"}}>
     {/* <Card component="main" maxwidth='xs' spacing={24}>  */}
@@ -42,8 +41,8 @@ export default function VerifyPin(props) {
 
         <Grid item xs={12} >
             <OTPInput
-                value={OTP}
-                onChange={setOTP}
+                value={props.getOTPValue()}
+                onChange={props.setOTP}
                 autoFocus
                 OTPLength={4}
                 otpType="number"
@@ -54,12 +53,11 @@ export default function VerifyPin(props) {
             <p> </p>
             <Grid item xs={12}> 
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             // className={classes.submit}
-            // onClick={handleForm}
+            onClick={() => {props.onResetPassword()}}
           >
             Reset Password
           </Button>

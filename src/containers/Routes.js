@@ -13,6 +13,11 @@ const Routes = props => {
     return (
         <Switch>
             <Route
+                exact path="/"
+                // exact path="/"
+                render={props => <Explore currentUser={currentUser} {...props} />}
+            />
+            <Route
                 exact path="/explore"
                 // exact path="/"
                 render={props => <Explore currentUser={currentUser} {...props} />}

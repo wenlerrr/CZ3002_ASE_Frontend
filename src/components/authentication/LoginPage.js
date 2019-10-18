@@ -118,10 +118,10 @@ export default function LoginPage(props) {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Button onClick= {() => {props.onForgetPassword()}}>
-                  Forgot password?
+            <Grid container justify="space-between">
+              <Grid item>
+                <Button onClick= {e => {props.onStart()}}>
+                  Back
                 </Button>
               </Grid>
               <Grid item>
@@ -129,6 +129,11 @@ export default function LoginPage(props) {
                   {"Don't have an account? Sign Up"}
                 </Button>
               </Grid>
+            </Grid>
+            <Grid container justify="flex-end">
+                <Button onClick= {() => {props.onForgetPassword()}}>
+                  Forgot password?
+                </Button>
             </Grid>
           </form>
         </div>

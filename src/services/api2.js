@@ -2,20 +2,20 @@ import axios from 'axios';
 
 export default class API {
     constructor() {}
-    get(path: string) {
-      return new Promise<any>((resolve, reject) => {
+    get(path) {
+      return new Promise((resolve, reject) => {
         axios
           .get(path)
-          .then((response: any) => {
+          .then((response) => {
             resolve(response.data);
           })
-          .catch((error: any) => {
+          .catch((error) => {
             reject(error.response);
           });
       });
     }
-    post(path: string, data: any) {
-      return new Promise<any>((resolve, reject) => {
+    post(path, data) {
+      return new Promise((resolve, reject) => {
         axios
           .post(path, data)
           .then(response => {
@@ -26,8 +26,8 @@ export default class API {
           });
       });
     }
-    put(path: string, data: any) {
-      return new Promise<any>((resolve, reject) => {
+    put(path, data) {
+      return new Promise((resolve, reject) => {
         axios
           .put(path, data)
           .then(response => {
@@ -38,8 +38,8 @@ export default class API {
           });
       });
     }
-    delete(path: string, data: any) {
-      return new Promise<any>((resolve, reject) => {
+    delete(path, data) {
+      return new Promise((resolve, reject) => {
         axios
           .delete(path, data)
           .then(response => {

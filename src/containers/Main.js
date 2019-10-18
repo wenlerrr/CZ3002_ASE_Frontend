@@ -9,6 +9,9 @@ import Authenticate from "./Authenticate";
 import Navbar from "./NavBar";
 
 class Main extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         const { authUser, errors, removeError, currentUser, loading, setLoading } = this.props;
         return (
@@ -24,6 +27,7 @@ class Main extends Component {
                 ) : (
                     <div style={{margin: '0px'}}>
                         <Authenticate 
+                        store={this.props.store}
                         removeError={removeError}
                         addError={addError}
                         errors={errors}

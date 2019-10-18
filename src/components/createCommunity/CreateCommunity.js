@@ -4,6 +4,7 @@ import { CssBaseline,AppBar,Paper,Stepper,Step,StepLabel,Button,Typography} from
 import Review from './Review';
 import CommunityDetailsForm from './CommunityDetailsForm';
 import background2 from '../../images/bckgrnd.jpg'
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   main:{
@@ -12,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     // backgroundSize: '110%',
     // top: '0',
     // width: '2000px',
-    height: '900px',
+    // height: '900px',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
    
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     // width:flexbox,
    
     width:1000,
-    height:1200,
+    height:750,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     margin:theme.spacing(2),
@@ -70,6 +71,7 @@ const steps = ['Community details', 'Review'];
 export default function CreateCommunity(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
+  const [redirect, setRedirect] = useState(false);
   const [info,setInfo]= useState({
     name: '',
     description: '',
@@ -97,65 +99,76 @@ export default function CreateCommunity(props) {
     setActiveStep(activeStep - 1);
   };
 
-  return (
-    <React.Fragment>
-      <div className={classes.main}>
-      <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-      </AppBar>
-      <main className={classes.layout}>
-        <Paper className={classes.paper} elevation={10}>
-          <Typography component="h1" variant="h3" align="center">
-            Create Community
-            <p></p>
-          </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map(label => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          <React.Fragment>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h4" gutterBottom>
-                  Your community has been created!
-                </Typography>
-                <Typography variant="h6">
-                 
-                  Thank you for contributing to the JioBook community! :)
-                </Typography>
-                <Button className={classes.button}variant="contained"
-                    color="primary">
-                      Back to main 
-                    </Button>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
-                    </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Create' : 'Next'}
+  const directToMain = () => {
+    setRedirect(true);
+  }
+
+  if(redirect) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    );
+  } else {
+    return (
+        <div className={classes.main}>
+        <CssBaseline />
+        <AppBar position="absolute" color="default" className={classes.appBar}>
+        </AppBar>
+        <main className={classes.layout}>
+          <Paper className={classes.paper} elevation={10}>
+            <Typography component="h1" variant="h3" align="center">
+              Create Community
+              <p></p>
+            </Typography>
+            <Stepper activeStep={activeStep} className={classes.stepper}>
+              {steps.map(label => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <React.Fragment>
+              {activeStep === steps.length ? (
+                <React.Fragment>
+                  <Typography variant="h4" gutterBottom>
+                    Your community has been created!
+                  </Typography>
+                  <Typography variant="h6">
+                  
+                    Thank you for contributing to the JioBook community! :)
+                  </Typography>
+                  <Button className={classes.button}variant="contained" color="primary" onClick={directToMain}>
+                      Back to main
                   </Button>
-                </div>
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        </Paper>
-        
-      </main>
-      </div>
-    </React.Fragment>
-  );
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Back
+                      </Button>
+                    )}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Create' : 'Next'}
+                    </Button>
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+          </Paper>
+          
+        </main>
+        </div>
+    );
+  }
 }

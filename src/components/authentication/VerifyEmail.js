@@ -33,7 +33,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function VerifyEmail(props) {
   const classes = useStyles();
-  const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
     
@@ -42,7 +41,7 @@ export default function VerifyEmail(props) {
     const value = evt.target.type === 'checkbox' ? evt.target.checked : evt.target.value;
     switch (evt.target.name) { 
       case 'emailInput':
-        setEmail(value);
+        props.setEmail(value);
         setEmailError(false);
         break;
       default:
@@ -52,12 +51,13 @@ export default function VerifyEmail(props) {
 
   const handleForm = (evt) => {
     evt.preventDefault();
-     var error= false
-     if (email === '') {
-       setEmailError(true);
-       setErrorMessage("This field is required")
-       error = true
-     }
+    var error= false
+    if (props.getEmailValue() === '') {
+      setEmailError(true);
+      setErrorMessage("This field is required")
+      error = true
+    }
+     props.setPinObtained()
   }
 
   return (
@@ -97,7 +97,7 @@ export default function VerifyEmail(props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                onClick={() => {props.setPinObtained()}}
+                onClick={handleForm}
             >
                 Send Pin
             </Button>
@@ -109,6 +109,7 @@ export default function VerifyEmail(props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={() => {props.offForgetPassword()}}
             >
                 Back
             </Button>

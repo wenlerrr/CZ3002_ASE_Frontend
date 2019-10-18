@@ -10,14 +10,15 @@ import Loading from "./Loading";
 import Main from "./Main";
 import Forum from "../components/Forum/Forum";
 import WLForum from "../components/communityForum/forum";
+var store = undefined;
 
 class App extends Component {
   constructor(props) {
     super(props);
+    store = this.props.store
     if (localStorage.jwtToken) {
       var user = jwtDecode(localStorage.jwtToken);
       setAuthorizationToken(localStorage.jwtToken);
-
       apiCall("get", `/api/authentication`)
         .then(userReturned => {
           // prevent someone from manually tampering with the key of jwtToken in localStorage
@@ -55,7 +56,7 @@ class App extends Component {
           <Loading />
         ) : (
           <div>
-            <Main />
+            <Main store={store} />
           </div>
         )}
       </div>

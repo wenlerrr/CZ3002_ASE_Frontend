@@ -76,7 +76,7 @@ export default function CommunityCard({
     );
   } else {
     return (
-      <Card className={classes.card}>
+      <Card className={sim? classes.card_small: classes.card}>
         {sim ? (
           <CardMedia className={classes.cover_small} image={sub.image} />
         ) : (

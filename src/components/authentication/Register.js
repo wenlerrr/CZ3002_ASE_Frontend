@@ -240,7 +240,12 @@ export default function Register(props) {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="space-between">
+            <Grid item>
+              <Button onClick= {e => {props.onStart()}}>
+                Back
+              </Button>
+            </Grid>
             <Grid item>
               <Button onClick= {e => {props.onLogIn()}} >
                 Already have an account? Sign in

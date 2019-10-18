@@ -37,7 +37,7 @@ export default function Explore() {
   const handleFilter= event =>{
     setCategory(event.target.value)
     console.log(event.target.value)
-    let newExploreList = Array.from(exploreList)
+    let newExploreList = Array.from(exploredCommunityList)
         // newSubList.splice(index, 1);
     newExploreList = newExploreList.filter((community) => {
           return community.category_id==event.target.value
