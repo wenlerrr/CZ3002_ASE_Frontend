@@ -22,26 +22,21 @@ const useStyles = makeStyles(theme => ({
     justify: "space-between",
     margin: "0px"
   },
-  card_small: {
-    display: "flex",
-    flexDirection: "row",
-    justify: "space-between",
-    margin: "0px"
-  },
+
   details: {
-    display: "flex",
-    flexDirection: "column"
+    // display: "flex",
+    // flexDirection: "column"
   },
   content: {
-    flex: "1 0 auto"
+    // flex: "1 0 auto"
+    width:700,
   },
   cover: {
     width: 350,
-    height: 250
+    height: 300
   },
   cover_small: {
     width: 150,
-
     height: 120
   },
   button: {
@@ -59,13 +54,34 @@ export default function CommunityCard({
 }) {
   const [redirect, setRedirect] = useState(false);
   const [communityID, setCommunityID] = useState("");
+  const [joined, setJoined]=useState(sub.joined)
   const classes = useStyles();
+  const quitCommunityFunction= sub=>{
+    if (window.confirm("Are you sure you want to quit the "+sub.name+" community?")) {
+        // removeSub(sub._id)
+        setJoined(false)
+    } else {
+      // Do nothing!
+  }
+    
+  };
+  const joinCommunityFunction= sub=>{
+    if (window.confirm("Are you sure you want to join the "+sub.name+" community?")) {
+        // addSub(sub._id)
+        setJoined(true)
+    } else {
+      // Do nothing!
+  }
+    
+  };
+
   const redirectFunction = id => {
     setCommunityID(id);
+    // console.log(id)
     setRedirect(true);
   };
   if (redirect) {
-    console.log(communityID);
+    // console.log(communityID);
     return (
       <Redirect
         to={{
@@ -77,11 +93,8 @@ export default function CommunityCard({
   } else {
     return (
       <Card className={sim? classes.card_small: classes.card}>
-        {sim ? (
-          <CardMedia className={classes.cover_small} image={sub.image} />
-        ) : (
-          <CardMedia className={classes.cover} image={sub.image} />
-        )}
+          <CardMedia className={sim? classes.cover_small: classes.cover} image={sub.image} />
+       
         <div className={classes.details}>
           <CardContent className={classes.content}>
             {sim ? (
@@ -105,12 +118,12 @@ export default function CommunityCard({
             >
               View
             </Button>
-            {sub.joined ? (
+            {joined ? (
               <Button
                 variant="contained"
                 colour="secondary"
                 className={classes.button}
-                onClick={() => removeSub(sub._id)}
+                onClick={() => quitCommunityFunction(sub)}
               >
                 Quit
               </Button>
@@ -119,7 +132,7 @@ export default function CommunityCard({
                 variant="contained"
                 colour="secondary"
                 className={classes.button}
-                onClick={() => addSub(sub._id)}
+                onClick={() => joinCommunityFunction(sub)}
               >
                 Join
               </Button>

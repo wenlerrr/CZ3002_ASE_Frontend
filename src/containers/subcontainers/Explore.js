@@ -4,6 +4,7 @@ import InnerNavbar from "../../components/main/InnerNavBar";
 import {Button,InputBase,FormControl,Select,MenuItem,InputLabel,Typography,Fab,IconButton} from "@material-ui/core"
 import {fade,makeStyles}from '@material-ui/core/styles';
 var { categoryList } = require('../../data/CategoryList');
+var { communityList } = require('../../data/CommunityList');
 var { exploredCommunityList } = require('../../data/ExploredCommunityList');
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
 
@@ -15,7 +16,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Explore() {
-  const [category, setCategory]=useState('')
+  // const [exploredCommunityList, setExploredCommunityList ]=useState(communityList.splice(4,6));
+  // const joinedCommunityList=communityList.splice(0,3);
+  const [category, setCategory]=useState('');
   const [exploreList, setExploreList] = useState(exploredCommunityList);   
   const [subList, setSubList] = useState(joinedCommunityList);   
   
@@ -36,17 +39,19 @@ export default function Explore() {
 
   const handleFilter= event =>{
     setCategory(event.target.value)
-    console.log(event.target.value)
+   
     let newExploreList = Array.from(exploredCommunityList)
         // newSubList.splice(index, 1);
     newExploreList = newExploreList.filter((community) => {
           return community.category_id==event.target.value
         })
+    console.log(newExploreList)
     setExploreList(newExploreList);
   }
 
   const clearFilter=event =>{
     setExploreList(exploredCommunityList);
+    setCategory('')
   }
 
     const classes = useStyles();

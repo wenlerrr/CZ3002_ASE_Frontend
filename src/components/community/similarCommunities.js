@@ -1,28 +1,14 @@
 import React,{useState} from 'react';
 import {Card,Typography,AppBar,Toolbar} from '@material-ui/core';
 import CommunityCard from "../main/CommunityCard";
+var { similarCommunityList } = require("../../data/SimilarCommunityList");
 
 export default function SimilarCommunities(props) {
-  const [simCom, setSimCom] = useState([
-    {
-      name: "Hall 1",
-      description: "Community 1 that you subscribed to!",
-      image:'https://source.unsplash.com/user/erondu',
-      joined: false
-    },
-    {
-        name: "Hall 2",
-        description: "Community 2 that you subscribed to!",
-        image:'https://source.unsplash.com/user/erondu',
-        joined: false
-    },
-    {
-        name: "Hall 3",
-        description: "Community 3 that you subscribed to!",
-        image:'https://source.unsplash.com/user/erondu',
-        joined: false
-    },
-  ]);   
+  const [simCom, setSimCom] = useState(
+    similarCommunityList);   
+
+  const addSub={};
+  const removeSub={};
     return (
 
         <Card size='sm'>
@@ -34,14 +20,12 @@ export default function SimilarCommunities(props) {
           
           </Toolbar>
         </AppBar>
-            {simCom.map((simCom, index) => (
+            {simCom.map((simComInd) => (
           <CommunityCard
             sim={true}
-            key={index}
-            index={index}
-            sub={simCom}
-            // addSub={addSub}
-            // removeSub={removeSub}
+            sub={simComInd}
+            addSub={addSub}
+            removeSub={removeSub}
           />
         ))}
         </Card>

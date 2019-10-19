@@ -2,11 +2,17 @@ import React,{useState}from "react";
 import {Grid} from '@material-ui/core'
 import CommunityCard from "../../components/main/CommunityCard"
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
+var { communityList } = require('../../data/CommunityList');
+
 
 const Community = props => {
-    const [subList, setSubList] = useState(joinedCommunityList);   
+    // const [joinedCommunityList]=useState(communityList.splice(0,3));
+    // const joinedCommunityList=communityList.splice(0,3);
+    const [subList, setSubList] = useState(joinedCommunityList); 
+      
       
       const removeSub = id => {
+
         let newSubList = Array.from(subList)
         // newSubList.splice(index, 1);
         newSubList = newSubList.filter((community) => {

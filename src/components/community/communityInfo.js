@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,CssBaseline,Toolbar,Typography,CardMedia,Button,CardContent,Card,Box} from '@material-ui/core';
 
@@ -44,8 +44,23 @@ const useStyles = makeStyles(theme => ({
   
   export default function CommunityInfo(props) {
     const classes = useStyles();
+    const [joined, setJoined]=useState(props.joined);
+    const quitCommunityFunction= ()=>{
+      if (window.confirm("Are you sure you want to quit the "+props.name+" community?")) {
+          setJoined(false)
+      } else {
+        // Do nothing!
+    }
+      
+    };
+    const joinCommunityFunction= ()=>{
+      if (window.confirm("Are you sure you want to join the "+props.name+" community?")) {
+          setJoined(true)
+      } else {
+        // Do nothing!
+    }
     
-    
+     };
   
     return (
       <div className="container">
@@ -63,8 +78,8 @@ const useStyles = makeStyles(theme => ({
         <Card className={classes.card}>
             <CardMedia
                 className={classes.cover}
-                image='https://source.unsplash.com/user/erondu'
-                // image={props.image}
+                // image='https://source.unsplash.com/user/erondu'
+                image={props.image}
             />
             
             <div className={classes.details}>
@@ -77,10 +92,25 @@ const useStyles = makeStyles(theme => ({
                     {/* Mac Miller */}
                     {props.description}
                 </Typography>
-                <Button variant="contained" colour='secondary'className={classes.button} > 
-                        {/*if alr joined, show quit; else show join Join/Quit*/}
-                        {props.joined ?"Quit":"Join"}
-                   </Button> 
+                {joined ? (
+              <Button
+                variant="contained"
+                colour="secondary"
+                className={classes.button}
+                onClick={() => quitCommunityFunction()}
+              >
+                Quit
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                colour="secondary"
+                className={classes.button}
+                onClick={() => joinCommunityFunction()}
+              >
+                Join
+              </Button>
+            )}
                 </CardContent> 
                 
             </div>

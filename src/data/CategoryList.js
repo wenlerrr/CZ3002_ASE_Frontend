@@ -7,34 +7,58 @@ module.exports = {
         category_name:'Art'}, 
         {
         category_id:3,
-        category_name:'Cars'},
+        category_name:'Astrology'},
         {
         category_id:4,
-        category_name:'Cooking'},
+        category_name:'Basketball'},
         {
         category_id:5,
-        category_name:'Coding'},  
-
+        category_name:'Cars'},
+        {
+        category_id:6,
+        category_name:'Cooking'}, 
+        {
+        category_id:7,
+        category_name:'Coding'},
+        {
+        category_id:8,
+        category_name:'Cycling'},
+        { 
+        category_id:9,
+        category_name:'Dancing'},
+        {
+        category_id:10,
+        category_name:'Fashion'},
+        {
+        category_id:11,
+        category_name:'Gardening'},
+        {
+        category_id:12,
+        category_name:'Golf'},
+        {
+        category_id:13,
+        category_name:'K-Pop'},
+        {
+        category_id:14,
+        category_name:'Music'},
+        {
+        category_id:15,
+        category_name:'Origami'},
+        {
+        category_id:16,
+        category_name:'Photography'},
+        {
+        category_id:17,
+        category_name:'Running'},
+        {
+        category_id:18,
+        category_name:'Soccer'},
+        {
+        category_id:19,
+        category_name:'Swimming'},
+        {
+        category_id:20,
+        category_name:'Videography'},
 ]
 }
 
-{/* <MenuItem value={16}>Anime</MenuItem>
-            <MenuItem value={2}>Art</MenuItem>
-            <MenuItem value={7}>Cars</MenuItem>
-            <MenuItem value={5}>Cooking</MenuItem>
-            <MenuItem value={10}>Coding</MenuItem>
-            <MenuItem value={3}>Dance</MenuItem>
-            <MenuItem value={11}>Entrepreneurship</MenuItem>
-            <MenuItem value={12}>Fashion</MenuItem>
-            <MenuItem value={13}>Food</MenuItem>
-            <MenuItem value={6}>Games</MenuItem>
-            <MenuItem value={19}>Gardening</MenuItem>
-            <MenuItem value={4}>Music</MenuItem>
-            <MenuItem value={9}>Investment</MenuItem>
-            <MenuItem value={15}>KPop</MenuItem>
-            <MenuItem value={14}>Language</MenuItem>
-            <MenuItem value={17}>Movies</MenuItem>
-            <MenuItem value={18}>Marvel</MenuItem>
-            <MenuItem value={1}>Sports</MenuItem>
-            <MenuItem value={8}>Travel</MenuItem> */}
-  

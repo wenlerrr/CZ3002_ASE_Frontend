@@ -14,18 +14,19 @@ import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from "../../components/Forum/Forum";
 import CommunityImageGallery from '../../components/community/communityImageGallery'
-
-import API from "../../services/api2";
 var { communityList } = require("../../data/CommunityList");
-var { joinedCommunityList } = require("../../data/JoinedCommunityList");
 
 export default function SingleCommunityPage(props) {
   // to extract info of the correct community given the community ID
   //community ID can be extracted as {props.location.state.communityID}
   const [community, setCommunity] = useState(
+    // console.log(props.location.state.communityID),
+
     communityList.filter(community => {
+      // console.log(community._id==props.location.state.communityID)
       return community._id == props.location.state.communityID;
-    })[0]
+    })[0],
+    
   );
 
   const { username } = props.currentUser.user;
@@ -54,14 +55,19 @@ export default function SingleCommunityPage(props) {
         <Grid item xs={4}>
           <p></p>
           <p></p>
-          <p></p> <p></p>
-          <SimilarCommunities></SimilarCommunities>
+          <SimilarCommunities ></SimilarCommunities>
         </Grid>
-        <CommunityImageGallery></CommunityImageGallery>
+        <Grid item xs={12}>
+        <CommunityImageGallery joined={community.joined}></CommunityImageGallery>
+        <p></p> <p></p>
+        </Grid>
+        <Grid item xs={12}>
         <VideoGallery></VideoGallery>
-        <p></p>
-        <p></p>
+        <p></p> <p></p>
+        </Grid>
+        <Grid item xs={12}>
         <Forum username={username}></Forum>
+        </Grid>
       </Grid>
     </div>
   );

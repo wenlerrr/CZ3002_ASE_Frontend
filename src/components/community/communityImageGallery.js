@@ -21,12 +21,18 @@ const useStyles = makeStyles(theme => ({
   
 
 
-export default function CommunityImageGallery() {
+export default function CommunityImageGallery(props) {
   const classes = useStyles();
+  const [joined,setJoined]=useState(props.joined);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [open, setOpen] =useState(false);
   const[expand,setExpand]=useState(false);
+  const sendAlert=()=>{
+    alert("You can only post photos after you joined the community");
+    setJoined(true)
+
+  }
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -56,7 +62,7 @@ export default function CommunityImageGallery() {
             Community Photos
           </Typography>
           <IconButton edge="end" color="inherit" className={classes.toolbarButtons}>
-            <Fab  edge="end" color="secondary" aria-label="add"  onClick={() =>setOpen(true)}>
+            <Fab  edge="end" color="secondary" aria-label="add"  onClick={joined?() =>setOpen(true): ()=>sendAlert()}>
               <Typography variant='h6'> +</Typography>
               </Fab>
           </IconButton>
