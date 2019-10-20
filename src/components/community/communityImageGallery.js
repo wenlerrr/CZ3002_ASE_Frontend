@@ -29,8 +29,8 @@ export default function CommunityImageGallery(props) {
   const [open, setOpen] =useState(false);
   const[expand,setExpand]=useState(false);
   const sendAlert=()=>{
-    alert("You can only post photos after you joined the community");
-    setJoined(true)
+    joined? setOpen(true): alert("You can only post photos after you joined the community");
+    setJoined(!joined)
 
   }
   const openLightbox = useCallback((event, { photo, index }) => {
@@ -62,7 +62,7 @@ export default function CommunityImageGallery(props) {
             Community Photos
           </Typography>
           <IconButton edge="end" color="inherit" className={classes.toolbarButtons}>
-            <Fab  edge="end" color="secondary" aria-label="add"  onClick={joined?() =>setOpen(true): ()=>sendAlert()}>
+            <Fab  edge="end" color="secondary" aria-label="add"  onClick={ ()=>sendAlert()}>
               <Typography variant='h6'> +</Typography>
               </Fab>
           </IconButton>
