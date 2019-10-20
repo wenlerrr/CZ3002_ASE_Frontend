@@ -1,6 +1,7 @@
 import React,{useState}from "react";
 import {Grid} from '@material-ui/core'
 import CommunityCard from "../../components/main/CommunityCard"
+import Navbar from "../NavBar";
 var { joinedCommunityList } = require('../../data/JoinedCommunityList');
 var { communityList } = require('../../data/CommunityList');
 
@@ -27,6 +28,8 @@ const Community = props => {
       };
 
     return (
+      <div>
+      <Navbar />
         <div className="container">
             <div>
             {subList.map((sub) => (
@@ -40,6 +43,7 @@ const Community = props => {
           />
         ))}
             </div> 
+        </div>
         </div>
     )
 }

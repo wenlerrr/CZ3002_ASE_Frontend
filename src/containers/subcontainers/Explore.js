@@ -3,6 +3,7 @@ import CommunityCard from "../../components/main/CommunityCard";
 import InnerNavbar from "../../components/main/InnerNavBar";
 import {Button,InputBase,FormControl,Select,MenuItem,InputLabel,Typography,Fab,IconButton} from "@material-ui/core"
 import {fade,makeStyles}from '@material-ui/core/styles';
+import Navbar from "../NavBar";
 var { categoryList } = require('../../data/CategoryList');
 var { communityList } = require('../../data/CommunityList');
 var { exploredCommunityList } = require('../../data/ExploredCommunityList');
@@ -56,6 +57,8 @@ export default function Explore() {
 
     const classes = useStyles();
     return (
+      <div>
+      <Navbar />
         <div className="container">
             <div className={classes.search} align='right'>
               <p> </p><p></p> 
@@ -94,6 +97,7 @@ export default function Explore() {
                 />
               ))}
              </div>
+         </div>
          </div>
     )
 }

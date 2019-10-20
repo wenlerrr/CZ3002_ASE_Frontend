@@ -48,6 +48,15 @@ const useStyles = makeStyles(theme => ({
     const handleClose = () => {
       setAnchorEl(null);
     };
+    if(redirect) {
+        return (
+            <Redirect
+        to={{
+          pathname: "/"
+        }}
+      />
+        )
+    } else {
       return (
         <div className={classes.root}>
             <AppBar
@@ -57,9 +66,7 @@ const useStyles = makeStyles(theme => ({
             >
                 <Toolbar>
                 <Typography align="left" variant="h6" className={classes.title}>
-                    <Link to="/" style={{ textDecoration: "none" }}>
                     JioBook
-                    </Link>
                 </Typography>
                     <div>
                     <Button
@@ -79,13 +86,8 @@ const useStyles = makeStyles(theme => ({
                         <MenuItem>
                         Signed in as <b style={{marginLeft: "5px"}}> { ` ${props.currentUser.user.username}`}</b>
                         </MenuItem>
-                        <MenuItem>
-                        <Link
-                            to="/"
-                            style={{ textDecoration: "none", color: "black" }}
-                        >
+                        <MenuItem onClick={() => {setRedirect(true)}}>
                             Explore
-                        </Link>
                         </MenuItem>
                         <MenuItem>
                         <Link
@@ -118,6 +120,7 @@ const useStyles = makeStyles(theme => ({
             </AppBar>
         </div>
       );
+    }
   };
 
 function mapStateToProps(state) {

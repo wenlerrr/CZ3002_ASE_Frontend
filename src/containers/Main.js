@@ -6,7 +6,6 @@ import { authUser } from "../store/actions/auth";
 import { removeError, addError } from "../store/actions/errors";
 import { setLoading } from "../store/actions/load";
 import Authenticate from "./Authenticate";
-import Navbar from "./NavBar";
 
 class Main extends Component {
     constructor(props) {
@@ -18,7 +17,6 @@ class Main extends Component {
             <div>
                 {(currentUser.isAuthenticated) ? (
                     <Router>
-                        <Navbar />
                         {errors.message && (
                         <div className="alert alert-danger">{errors.message}</div>
                         )}

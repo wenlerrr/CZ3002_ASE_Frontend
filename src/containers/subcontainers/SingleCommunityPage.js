@@ -14,6 +14,7 @@ import VideoGallery from "../../components/communityVideo/videoGallery";
 import MemberBar from "../../components/communityMember/memberBar";
 import Forum from "../../components/Forum/Forum";
 import CommunityImageGallery from '../../components/community/communityImageGallery'
+import Navbar from "../NavBar";
 var { communityList } = require("../../data/CommunityList");
 
 export default function SingleCommunityPage(props) {
@@ -32,7 +33,9 @@ export default function SingleCommunityPage(props) {
   const { username } = props.currentUser.user;
 
   return (
+    <div>
     <div className="container">
+    <Navbar />
       <Grid container spacing={3}>
         <Grid item xs={8}>
           <div>
@@ -69,6 +72,7 @@ export default function SingleCommunityPage(props) {
         <Forum username={username}></Forum>
         </Grid>
       </Grid>
+    </div>
     </div>
   );
 }
