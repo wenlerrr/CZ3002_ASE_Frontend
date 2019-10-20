@@ -34,8 +34,8 @@ export default function SingleCommunityPage(props) {
 
   return (
     <div>
+      <Navbar />
     <div className="container">
-    <Navbar />
       <Grid container spacing={3}>
         <Grid item xs={8}>
           <div>

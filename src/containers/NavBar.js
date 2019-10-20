@@ -35,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   const NavBar = (props) => {
     const classes = useStyles({});
     const [redirect, setRedirect] = React.useState(false);
+    const [redirectMyCommunity, setRedirectMyCommunity] = React.useState(false);
+    const [redirectCreate, setRedirectCreate] = React.useState(false);
+    const [redirectPassword, setRedirectPassword] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -55,8 +58,24 @@ const useStyles = makeStyles(theme => ({
           pathname: "/"
         }}
       />
-        )
-    } else {
+      )
+    } 
+    else if(redirectMyCommunity) {
+      return (
+        <Redirect to={{pathname: "/community"}}/>
+      )
+    }
+    else if(redirectCreate) {
+      return (
+        <Redirect to={{pathname: "/create"}}/>
+      )
+    }
+    else if(redirectPassword) {
+      return (
+        <Redirect to={{pathname: "/changePassword"}}/>
+      )
+    }
+    else {
       return (
         <div className={classes.root}>
             <AppBar
@@ -89,29 +108,14 @@ const useStyles = makeStyles(theme => ({
                         <MenuItem onClick={() => {setRedirect(true)}}>
                             Explore
                         </MenuItem>
-                        <MenuItem>
-                        <Link
-                            to="/community"
-                            style={{ textDecoration: "none", color: "black" }}
-                        >
+                        <MenuItem onClick={() => {setRedirectMyCommunity(true)}}>
                             My Community
-                        </Link>
                         </MenuItem>
-                        <MenuItem>
-                        <Link
-                            to="/create"
-                            style={{ textDecoration: "none", color: "black" }}
-                        >
+                        <MenuItem onClick={() => {setRedirectCreate(true)}}>
                             Create Community
-                        </Link>
                         </MenuItem>
-                        <MenuItem>
-                        <Link
-                            to="/changePassword"
-                            style={{ textDecoration: "none", color: "black" }}
-                        >
+                        <MenuItem onClick={() => setRedirectPassword(true)}>
                             Change Password
-                        </Link>
                         </MenuItem>
                         <MenuItem onClick={handleLogOut}>Log out</MenuItem>
                     </Menu>
