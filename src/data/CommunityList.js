@@ -65,13 +65,40 @@ description: "Running is not as difficult as it seems. In fact, most of us do it
             category_id: 17,
             joined: false
         },      
-        {
-          _id:9,     
-          name: "Music",
-description: "They say life without music would ‘b’ flat and that is why communities like us are important. Regardless if you are a rabbit who likes hip-hop, or am an oldie who likes to beat-box, join us today as we smash the floor and make the pop go rock!",
-            image:'https://www.creativefabrica.com/wp-content/uploads/2018/10/Piano-violin-musical-logo-by-yahyaanasatokillah-580x387.jpg',
-            category_id: 14,
-            joined: false
-        }, 
+//         {
+//           _id:9,     
+//           name: "Music",
+// description: "They say life without music would ‘b’ flat and that is why communities like us are important. Regardless if you are a rabbit who likes hip-hop, or am an oldie who likes to beat-box, join us today as we smash the floor and make the pop go rock!",
+//             image:'https://www.creativefabrica.com/wp-content/uploads/2018/10/Piano-violin-musical-logo-by-yahyaanasatokillah-580x387.jpg',
+//             category_id: 14,
+//             joined: false
+//         }, 
+{
+  _id:10,     
+  name: "A cappella",
+    description: "Can you sing? Have you always imagined yourself as the lead star in High School Musical? If you have, then A cappella is surely a must try for you! We will provide you with not only opportunities to groom your singing talent and showcase it on the big stage, but also chill studio sessions with your fellow singer enthusiasts where you get to sing your favourite songs.",
+    image:'https://lettersfromthemezzanine.files.wordpress.com/2015/07/acappella-nymf-logo.jpg',
+
+  category_id: 14,
+    joined: false
+},      
+{
+  _id:11,     
+  name: "Piano Club",
+  description: "They say life without music would ‘b’ flat and that is why communities like us are important. Regardless of whether your favourite piano maestro is Martha Argerich or Beethoven, by joining us you will gain an increased appreciation for more artists and their works. There are even studies that show playing the piano helps people to experience less anxiety and depression! So hesitate no more and get your fingers ready today!",
+    image:'https://cdn.dribbble.com/users/2185289/screenshots/4400394/41.png',
+
+  category_id: 14,
+    joined: false
+},      
+{
+  _id:12,     
+  name: "Rock n’ Roll",
+  description: "At this club, we love everything about rock music, and will even teach you a thing or two about the instruments that most rock songs use, such as the electric guitar. If you are someone who can relate with us, and Metallica or Linkin Park have been your idols all your life, then congratulations, you’ve found your home! Join us today as we smash the floor and make the pop go rock!",
+    image:'https://t3.ftcdn.net/jpg/02/11/26/44/500_F_211264480_fyOg2iOpiNmF9pGWjORV0ySzI3HDylEU.jpg',
+  category_id: 14,
+    joined: false
+},  
+
   ]
 }

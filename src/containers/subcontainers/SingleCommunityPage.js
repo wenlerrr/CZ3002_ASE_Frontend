@@ -61,7 +61,7 @@ export default function SingleCommunityPage(props) {
           <SimilarCommunities ></SimilarCommunities>
         </Grid>
         <Grid item xs={12}>
-        <CommunityImageGallery joined={community.joined}></CommunityImageGallery>
+        <CommunityImageGallery category_id={community.category_id}joined={community.joined}></CommunityImageGallery>
         <p></p> <p></p>
         </Grid>
         <Grid item xs={12}>

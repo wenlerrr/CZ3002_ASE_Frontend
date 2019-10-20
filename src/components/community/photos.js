@@ -1,4 +1,4 @@
-export const photos = [
+export const ballet_photos = [
   {
     src: "https://cdn.sfballet.org/2019/09/04205702/Dancers-copy.jpg",
     width: 7,
@@ -58,3 +58,67 @@ export const photos = [
       },
 
 ];
+
+export const acappella_photos=[
+  {
+    src:'https://www.michigandaily.com/sites/default/files/styles/large/public/170413/glee.jpg?itok=kek_5X-o',
+    width:8,
+    height:5,
+    
+  },
+  {
+    src:'https://news.emory.edu/slideshows/barenaked_voices_2015/barenaked-voices07.jpg',
+    width:8,
+    height:5,
+    
+  },
+  {
+    src:'https://chimesnewspaper.com/wp-content/uploads/2016/03/MusicAtNoon-900x605.jpg',
+    width:8,
+    height:5,
+    
+  },
+  {
+    src:'https://snworksceo.imgix.net/bsd/6bc3778f-e36b-4966-8f4a-0eaf2a830295.sized-1000x1000.jpg?w=800',
+    width:8,
+    height:5,
+    
+  },
+{
+  src:'https://i.ytimg.com/vi/CqLjxb_W-hg/maxresdefault.jpg',
+  width:8,
+  height:5,
+  
+},
+{
+  src:'https://studentaffairs.jhu.edu/homewoodarts/wp-content/uploads/sites/43/2015/08/all-nighters-acapella.jpg',
+  width:8,
+  height:5,
+  
+},
+{
+  src:'https://arapahoextra.com/wp-content/uploads/2017/10/IMG_9643-1200x800.jpg',
+  width:8,
+  height:5,
+  
+},
+
+{
+  src:'https://i.ytimg.com/vi/o0Q642YTQ9I/maxresdefault.jpg',
+  width:8,
+  height:5,
+  
+},
+{
+  src:'https://media.gannett-cdn.com/fortcollins/44238099001/201503/624/44238099001_4131771415001_4131731382001-vs.jpg?width=540&height=304&fit=crop',
+  width:8,
+  height:5,
+  
+},
+{
+  src:'https://www.tohoku.ac.jp/en/events/images/20190628_event_choir2019_t.jpg',
+  width:8,
+  height:5,
+  
+},
+]

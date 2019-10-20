@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import { makeStyles } from '@material-ui/core/styles';
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "./photos";
+import { ballet_photos,acappella_photos } from "./photos";
 import {Card,AppBar,Toolbar,Typography,CssBaseline,Collapse,Button,IconButton,Fab,Dialog,DialogTitle,DialogActions,DialogContent,DialogContentText,TextField} from '@material-ui/core'
 const useStyles = makeStyles(theme => ({
     button: {
@@ -28,7 +28,9 @@ export default function CommunityImageGallery(props) {
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [open, setOpen] =useState(false);
   const[expand,setExpand]=useState(false);
+  const [photos]=useState(props.category_id==14 ? acappella_photos: ballet_photos);
   const sendAlert=()=>{
+    console.log(props)
     joined? setOpen(true): alert("You can only post photos after you joined the community");
     setJoined(!joined)
 
