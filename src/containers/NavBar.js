@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
                         </MenuItem>
                         <MenuItem>
                         <Link
-                            to="/explore"
+                            to="/"
                             style={{ textDecoration: "none", color: "black" }}
                         >
                             Explore

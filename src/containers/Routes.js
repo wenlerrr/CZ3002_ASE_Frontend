@@ -17,11 +17,7 @@ const Routes = props => {
                 // exact path="/"
                 render={props => <Explore currentUser={currentUser} {...props} />}
             />
-            <Route
-                exact path="/explore"
-                // exact path="/"
-                render={props => <Explore currentUser={currentUser} {...props} />}
-            />
+          
             <Route
                 exact path="/community"
                 render={props => <Community currentUser={currentUser} {...props} />}
