@@ -36,7 +36,10 @@ class ForumWriteReply extends Component {
     return (
       <ListItem>
         <ListItemAvatar>
-          <Avatar alt="Profile Picture" src={this.props.userprofile} />
+          <Avatar
+            alt="Profile Picture"
+            src="https://randomuser.me/api/portraits/men/1.jpg"
+          />
         </ListItemAvatar>
         <TextField
           margin="dense"
