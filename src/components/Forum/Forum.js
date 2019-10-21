@@ -56,7 +56,7 @@ class Forum extends Component {
       id: new Date().getTime(),
       username: this.props.username,
       comment: comment,
-      person: "https://randomuser.me/api/portraits/men/1.jpg"
+      person: "https://randomuser.me/api/portraits/women/60.jpg"
     };
 
     this.setState(prevState => ({

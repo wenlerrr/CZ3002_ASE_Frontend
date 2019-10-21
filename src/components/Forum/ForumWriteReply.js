@@ -38,7 +38,7 @@ class ForumWriteReply extends Component {
         <ListItemAvatar>
           <Avatar
             alt="Profile Picture"
-            src="https://randomuser.me/api/portraits/men/1.jpg"
+            src="https://randomuser.me/api/portraits/women/60.jpg"
           />
         </ListItemAvatar>
         <TextField
