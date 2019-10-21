@@ -96,9 +96,12 @@ const useStyles = makeStyles(theme => ({
                     </DialogContentText>
                     <TextField   autoFocus margin="dense" id="name"  label="Video's Title"  type="title" fullWidth
                     />
-                    {/* <TextField autoFocus  margin="dense"  id="name"  label="Video's Description"    type="description"  fullWidth  multiline='True'
-                      rows='3'
-                    /> */}
+                    <input
+                        accept="image/*"
+                        id="contained-button-file"
+                        multiple
+                        type="file"
+                      />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() =>setOpen(false)} color="primary">

@@ -71,25 +71,26 @@ export default function CommunityDetailsForm({info,setInfo}) {
               id: 'age-simple',
             }}
           >
-            <MenuItem value={16}>Anime</MenuItem>
-            <MenuItem value={2}>Art</MenuItem>
-            <MenuItem value={7}>Cars</MenuItem>
-            <MenuItem value={5}>Cooking</MenuItem>
-            <MenuItem value={10}>Coding</MenuItem>
-            <MenuItem value={3}>Dance</MenuItem>
-            <MenuItem value={11}>Entrepreneurship</MenuItem>
-            <MenuItem value={12}>Fashion</MenuItem>
-            <MenuItem value={13}>Food</MenuItem>
-            <MenuItem value={6}>Games</MenuItem>
-            <MenuItem value={19}>Gardening</MenuItem>
-            <MenuItem value={4}>Music</MenuItem>
-            <MenuItem value={9}>Investment</MenuItem>
-            <MenuItem value={15}>KPop</MenuItem>
-            <MenuItem value={14}>Language</MenuItem>
-            <MenuItem value={17}>Movies</MenuItem>
-            <MenuItem value={18}>Marvel</MenuItem>
-            <MenuItem value={1}>Sports</MenuItem>
-            <MenuItem value={8}>Travel</MenuItem>
+            
+            <MenuItem value={'Anime'}>Anime</MenuItem>
+            <MenuItem value={'Art'}>Art</MenuItem>
+            <MenuItem value={'Cars'}>Cars</MenuItem>
+            <MenuItem value={'Cooking'}>Cooking</MenuItem>
+            <MenuItem value={'Coding'}>Coding</MenuItem>
+            <MenuItem value={'Dance'}>Dance</MenuItem>
+            <MenuItem value={'Entrepreneurship'}>Entrepreneurship</MenuItem>
+            <MenuItem value={'Fashion'}>Fashion</MenuItem>
+            <MenuItem value={'Food'}>Food</MenuItem>
+            <MenuItem value={'Games'}>Games</MenuItem>
+            <MenuItem value={'Gardening'}>Gardening</MenuItem>
+            <MenuItem value={'Music'}>Music</MenuItem>
+            <MenuItem value={'Investment'}>Investment</MenuItem>
+            <MenuItem value={'KPop'}>KPop</MenuItem>
+            <MenuItem value={'Language'}>Language</MenuItem>
+            <MenuItem value={'Movies'}>Movies</MenuItem>
+            <MenuItem value={'Marvel'}>Marvel</MenuItem>
+            <MenuItem value={'Sports'}>Sports</MenuItem>
+            <MenuItem value={'Travel'}>Travel</MenuItem>
             {/* {categoryList.map((cat) => (
         <MenuItem value={cat.category_id} name={cat.category_name}>{cat.category_name}</MenuItem>
         ))}  */}

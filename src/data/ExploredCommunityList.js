@@ -75,7 +75,14 @@ description: "There are few rules when it comes to photography and you can be as
         category_id: 14,
           joined: false
       },  
-
+      {
+        _id:13,     
+        name: "ASE",
+        description: "Demo!",
+          image:'https://cdn.sfballet.org/2019/09/04205702/Dancers-copy.jpg',
+        category_id: 7,
+          joined: false
+      },  
 
 ]
 }
