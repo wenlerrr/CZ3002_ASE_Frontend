@@ -66,7 +66,7 @@ export default function SingleCommunityPage(props) {
           <Grid item xs={4}>
             <p></p>
             <p></p>
-            <SimilarCommunities></SimilarCommunities>
+            <SimilarCommunities communityID={communityID} changeCommunityID={changeCommunityID}></SimilarCommunities>
           </Grid>
           <Grid item xs={12}>
             <CommunityImageGallery
