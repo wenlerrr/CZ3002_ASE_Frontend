@@ -28,7 +28,9 @@ export default function CommunityImageGallery(props) {
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [open, setOpen] =useState(false);
   const[expand,setExpand]=useState(false);
-  const [photos]=useState(props.category_id==14 ? acappella_photos: ballet_photos);
+  const [post,setPost]=useState(false);
+  const[ballet_photo]=useState(ballet_photos)
+  const [photos,setPhotos]=useState(props.category_id==14 ? acappella_photos: ballet_photo.slice(1));
   const sendAlert=()=>{
     console.log(props)
     joined? setOpen(true): alert("You can only post photos after you joined the community");
@@ -46,8 +48,9 @@ export default function CommunityImageGallery(props) {
   };
 
   const handlePost=()=>{
+    setPhotos(ballet_photos)
     setOpen(false);
-    //dk how the logic works help lah 
+    setPost(true);
   }
 
 
@@ -79,14 +82,20 @@ export default function CommunityImageGallery(props) {
                     <DialogContentText>
                       Upload a new photo in the community :)
                     </DialogContentText>
-                    <TextField autoFocus  margin="dense"  id="name"  label="Photo's Description"    type="description"  fullWidth  multiline='True'
-                      rows='3' />
+                    {/* <TextField autoFocus  margin="dense"  id="name"  label="Photo's Description"    type="description"  fullWidth  multiline='True'
+                      rows='3' /> */}
+                      <input
+                        accept="image/*"
+                        id="contained-button-file"
+                        multiple
+                        type="file"
+                      />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() =>setOpen(false)} color="primary">
                       Cancel
                     </Button>
-                    <Button onClick={() =>handlePost} color="primary">
+                    <Button onClick={() =>handlePost()} color="primary">
                       Post
                     </Button>
                   </DialogActions>

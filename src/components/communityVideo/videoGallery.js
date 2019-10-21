@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import {Typography, Collapse,Card,CardContent,Button,IconButton,Fab,Dialog,DialogTitle,DialogActions,DialogContent,DialogContentText,TextField,} from '@material-ui/core';
 import Video from './video'
 import {Player} from 'video-react';
+import {acapella_videos,acapella_videos_2,ballet_videos,ballet_videos_2} from './videoData'
 
 const useStyles = makeStyles(theme => ({
     text: {
@@ -49,14 +50,11 @@ const useStyles = makeStyles(theme => ({
   export default function VideoGallery(props) {
     const [open, setOpen] =useState(false);
     const[expand,setExpand]=useState(false);
+    const [videos]=useState(props.category_id==14 ? acapella_videos: ballet_videos);
+    const [videos_2]=useState(props.category_id==14 ? acapella_videos_2: ballet_videos_2);
+   
     const classes = useStyles();
-    const photos = [
-      {
-        src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-        width: 4,
-        height: 3
-      },
-    ]
+    
     const playVideo = index=> {
       alert("Hello World!");
       return (
@@ -117,7 +115,11 @@ const useStyles = makeStyles(theme => ({
             <div className={classes.details}>
                 <CardContent className={classes.content} >
                    
-                   <Video/> <Video/>
+                {videos.map((video) => (
+                    <Video
+                      src={video.src} poster={video.poster} title={video.title} card_size={props.category_id==14 ?false: true}
+                    > </Video>
+                  ))}
                 </CardContent> 
                 {expand? '' :<Button  size="large" color="primary" fullWidth='true'  onClick={() => setExpand(!expand)}>
                 <Typography variant='h6'> See more </Typography>
@@ -126,7 +128,11 @@ const useStyles = makeStyles(theme => ({
                     <div>
                     <span>
                     <CardContent className={classes.content} >
-                    <Video></Video><Video></Video>
+                      {videos_2.map((video) => (
+                    <Video
+                      src={video.src} poster={video.poster} title={video.title} card_size={props.category_id==14 ?false: true}
+                    > </Video>
+                  ))}
                     </CardContent> 
                     {expand? <Button colour='primary' size="large" fullWidth='true' onClick={() => setExpand(!expand)}>
                     <Typography variant='h6'> Show less </Typography>

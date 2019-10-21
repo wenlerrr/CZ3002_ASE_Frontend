@@ -65,7 +65,7 @@ export default function SingleCommunityPage(props) {
         <p></p> <p></p>
         </Grid>
         <Grid item xs={12}>
-        <VideoGallery></VideoGallery>
+        <VideoGallery category_id={community.category_id}></VideoGallery>
         <p></p> <p></p>
         </Grid>
         <Grid item xs={12}>
