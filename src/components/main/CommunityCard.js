@@ -7,7 +7,7 @@ import {
   Typography,
   Button
 } from "@material-ui/core";
-import { Redirect } from "react-router-dom";
+import {Redirect} from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   details: {
     // display: "flex",
     // flexDirection: "column"
+    width:100
   },
   content: {
     // flex: "1 0 auto"
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
   cover_small: {
     width: 150,
-    height: 120
+    height: 150
   },
   button: {
     margin: 5
@@ -50,10 +51,11 @@ export default function CommunityCard({
   index,
   sub,
   addSub,
-  removeSub
+  removeSub,
+  ...props
 }) {
-  const [redirect, setRedirect] = useState(false);
   const [communityID, setCommunityID] = useState("");
+  const [redirect, setRedirect] = useState(false)
   const [joined, setJoined]=useState(sub.joined)
   const classes = useStyles();
   const quitCommunityFunction= sub=>{
@@ -74,7 +76,6 @@ export default function CommunityCard({
   }
     
   };
-
   const redirectFunction = id => {
     setCommunityID(id);
     // console.log(id)
@@ -109,15 +110,22 @@ export default function CommunityCard({
                 </Typography>{" "}
               </div>
             )}
-
-            <Button
+            {sim ? (<Button
               variant="contained"
               colour="secondary"
               className={classes.button}
-              onClick={() => redirectFunction(sub._id)}
+              onClick={() => {props.changeCommunityID(sub._id)}}
             >
               View
-            </Button>
+    </Button>) :(<Button
+              variant="contained"
+              colour="secondary"
+              className={classes.button}
+              onClick={() => {redirectFunction(sub._id)}}
+            >
+              View
+            </Button>)}
+            
             {joined ? (
               <Button
                 variant="contained"

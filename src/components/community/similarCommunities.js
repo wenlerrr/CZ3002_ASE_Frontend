@@ -1,11 +1,19 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {Card,Typography,AppBar,Toolbar} from '@material-ui/core';
 import CommunityCard from "../main/CommunityCard";
 var { similarCommunityList } = require("../../data/SimilarCommunityList");
 
 export default function SimilarCommunities(props) {
-  const [simCom, setSimCom] = useState(
-    similarCommunityList);   
+  const [simCom, setSimCom] = useState(similarCommunityList.filter((community) => {
+    return community._id !== props.communityID
+  }));   
+
+  useEffect(() => {
+    var communities =  similarCommunityList.filter((community) => {
+      return community._id !== props.communityID
+    })
+    setSimCom(communities);
+  })
 
   const addSub={};
   const removeSub={};
@@ -22,6 +30,7 @@ export default function SimilarCommunities(props) {
         </AppBar>
             {simCom.map((simComInd) => (
           <CommunityCard
+            changeCommunityID={props.changeCommunityID}
             sim={true}
             sub={simComInd}
             addSub={addSub}

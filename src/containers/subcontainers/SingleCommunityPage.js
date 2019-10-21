@@ -29,6 +29,15 @@ export default function SingleCommunityPage(props) {
     })[0],
     
   );
+  const [communityID, setCommunityID] = useState(props.location.state.communityID)
+
+  const changeCommunityID = (id) => {
+    var community = communityList.find(function(community){
+      return community._id === id
+    })
+    setCommunity(community)
+    setCommunityID(id);
+  }
 
   const { username } = props.currentUser.user;
 
@@ -58,7 +67,7 @@ export default function SingleCommunityPage(props) {
         <Grid item xs={4}>
           <p></p>
           <p></p>
-          <SimilarCommunities ></SimilarCommunities>
+          <SimilarCommunities communityID={communityID} changeCommunityID={changeCommunityID} ></SimilarCommunities>
         </Grid>
         <Grid item xs={12}>
         <CommunityImageGallery category_id={community.category_id}joined={community.joined}></CommunityImageGallery>
