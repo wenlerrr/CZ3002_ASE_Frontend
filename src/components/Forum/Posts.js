@@ -58,7 +58,7 @@ class Posts extends Component {
       flexGrow: 1
     },
     comment: {
-      paddingLeft: 20
+      padding: "100px"
     },
     fabButton: {
       // position: 'absolute',
