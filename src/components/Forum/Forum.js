@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Posts from "./Posts";
-import PostData from "./PostsData";
+import PostData from "./PostsDataAcapella";
+import PostDataBallet from "./PostsDataBallet";
 import AddNewPost from "./AddNewPost";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -21,6 +22,7 @@ class Forum extends Component {
     };
     this.handleAddPost = this.handleAddPost.bind(this);
     this.handleReply = this.handleReply.bind(this);
+    this.setForum = this.setForum.bind(this);
   }
 
   useStyles = makeStyles(theme => ({
@@ -48,6 +50,10 @@ class Forum extends Component {
     }
   }));
 
+  setForum() {
+    //this.props.
+  }
+
   handleReply(comment, id) {
     console.log("comment" + comment);
     console.log("id" + id);
@@ -56,7 +62,7 @@ class Forum extends Component {
       id: new Date().getTime(),
       username: this.props.username,
       comment: comment,
-      person: "https://randomuser.me/api/portraits/men/1.jpg"
+      person: "https://randomuser.me/api/portraits/women/60.jpg"
     };
 
     this.setState(prevState => ({
@@ -78,6 +84,7 @@ class Forum extends Component {
 
     const newPost = {
       id: new Date().getTime(),
+      person: "https://randomuser.me/api/portraits/women/60.jpg",
       title: title,
       description: description,
       reply: []
