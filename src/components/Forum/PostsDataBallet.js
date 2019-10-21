@@ -1,7 +1,7 @@
 const postsData = [
   {
     id: 1000000000000,
-    title: "Open invitation to join our Bellet dance group",
+    title: "Open invitation to join our Ballet dance group",
     description:
       "Anyone want to join our existing Ballet group? We need ballet dancer who have at least 2 years of experinece!",
     date: "Today",

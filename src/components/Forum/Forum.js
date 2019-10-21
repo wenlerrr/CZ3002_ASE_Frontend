@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Posts from "./Posts";
-import PostData from "./PostsDataAcapella";
+import PostDataAcapella from "./PostsDataAcapella";
 import PostDataBallet from "./PostsDataBallet";
 import AddNewPost from "./AddNewPost";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,14 +18,18 @@ class Forum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: PostData
+      posts: this.props.category_id == 14 ? PostDataAcapella : PostDataBallet
     };
     this.handleAddPost = this.handleAddPost.bind(this);
     this.handleReply = this.handleReply.bind(this);
-    this.setForum = this.setForum.bind(this);
   }
 
   useStyles = makeStyles(theme => ({
+    toolbarButtons: {
+      marginLeft: "auto",
+      marginRight: -12
+    },
+
     text: {
       padding: theme.spacing(2, 2, 0)
     },
@@ -49,10 +53,6 @@ class Forum extends Component {
       flexGrow: 1
     }
   }));
-
-  setForum() {
-    //this.props.
-  }
 
   handleReply(comment, id) {
     console.log("comment" + comment);
@@ -132,7 +132,11 @@ class Forum extends Component {
                 </Typography>
                 <div className={this.useStyles.grow} />
 
-                <IconButton edge="end" color="inherit">
+                <IconButton
+                  edge="end"
+                  color="inherit"
+                  className={this.useStyles.toolbarButtons}
+                >
                   <Fab
                     color="secondary"
                     aria-label="add"
