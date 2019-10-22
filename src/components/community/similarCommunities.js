@@ -13,7 +13,7 @@ export default function SimilarCommunities(props) {
       return community._id !== props.communityID
     })
     setSimCom(communities);
-  })
+  }, [props.communityID])
 
   const addSub={};
   const removeSub={};
